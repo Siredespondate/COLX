@@ -1,0 +1,1026 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><meta name="theme-color" content="#050b0f"><title>COL-X ARCHIVE</title><style>
+:root{--bg:#050b0f;--panel:#09151c;--panel2:#0d1b23;--line:#233842;--line2:#2e4a55;--text:#dce9ed;--muted:#7f969f;--accent:#a9c4cc;--good:#78b69b}*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;background:var(--bg);color:var(--text);font-family:Arial,"Noto Sans KR",sans-serif}body{overflow:hidden}button,input{font:inherit}.screen{width:100%;height:100%;background:var(--bg)}.bar{height:38px;background:#101b22;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 14px;gap:7px;color:#8fa5ae;font-size:11px}.dot{width:10px;height:10px;border-radius:50%;background:#4c6975}.dot:nth-child(2){background:#718a94}.dot:nth-child(3){background:#a1b4ba}
+.desktop{height:calc(100% - 38px);position:relative;background:radial-gradient(circle at 72% 36%,#10232b 0,#071116 43%,#04090d 100%)}.file{position:absolute;top:34px;left:38px;width:92px;text-align:center;cursor:pointer;color:#cbdbe0;user-select:none}.fileicon{width:50px;height:60px;margin:auto;background:#dce7e9;border:1px solid #8da2aa;border-radius:4px;position:relative;box-shadow:0 6px 18px #0008}.fileicon:after{content:"";position:absolute;right:0;top:0;border-style:solid;border-width:0 0 15px 15px;border-color:transparent transparent #9cafb5 transparent}.file small{display:block;margin-top:8px;font-size:10px;line-height:1.35}.file.restricted{left:155px}.file.restricted .fileicon{background:#d5d8d2;border-color:#7f8880}.hint{position:absolute;left:36px;top:132px;font-size:9px;color:#536b75}
+.archive{display:none;height:100%;flex-direction:column}.archive.active{display:flex}.appbar{height:38px;flex:none}.app{height:calc(100% - 38px);display:flex;min-height:0}.side{width:238px;flex:none;border-right:1px solid var(--line);background:#091218;padding:20px 14px;display:flex;flex-direction:column}.logo{font-size:21px;font-weight:bold;letter-spacing:4px}.sub{font-size:8px;color:#718891;margin:5px 0 22px;letter-spacing:1px}.nav{font-size:11px;color:#8ea5ae;padding:10px 11px;border-radius:5px;margin:2px 0;cursor:pointer;transition:.15s}.nav:hover,.nav.active{background:#142a34;color:#edf7fa}.status{margin-top:auto;border-top:1px solid #20323a;padding-top:13px;font-size:9px;color:#617983;line-height:1.8}.green{color:var(--good)}.main{flex:1;min-width:0;min-height:0;display:flex;flex-direction:column}.top{height:66px;flex:none;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 28px;gap:18px}.crumb{font-size:10px;color:#718993;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.search{margin-left:auto;background:#071017;border:1px solid #2a404a;color:#cfe0e5;padding:10px 12px;width:290px;outline:none;border-radius:3px}.content{padding:30px 34px 42px;overflow:auto;min-height:0;scroll-behavior:smooth}.page{display:none;max-width:1320px;margin:0 auto}.page.active{display:block}h1{font-size:30px;margin:0 0 8px;letter-spacing:2px}.lead{font-size:11px;color:var(--muted);margin-bottom:26px;line-height:1.8}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card{background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:19px;min-height:145px;cursor:pointer;transition:.15s}.card:hover{border-color:#5a7882;background:#10242c;transform:translateY(-1px)}.tag{font-size:9px;color:#73909a;letter-spacing:1px}.card h2{font-size:16px;margin:11px 0 8px}.card p{font-size:10px;line-height:1.75;color:#8299a2;margin:0}.detail{width:100%}.back{border:1px solid #2d4650;background:#0b171e;color:#a9bec5;padding:8px 13px;cursor:pointer;font-size:10px;margin-bottom:18px;border-radius:3px}.info{border:1px solid var(--line);background:#0b181f;padding:24px;border-radius:5px}.info h2{margin:0 0 8px;font-size:24px}.info .meta{font-size:9px;color:#708992;margin-bottom:20px;letter-spacing:.5px}.info>p{font-size:11px;color:#9bb0b7;line-height:1.9;margin:0}.rows{margin-top:20px;border-top:1px solid var(--line)}.row{display:flex;border-bottom:1px solid #1d3038;padding:12px 0;font-size:10px;line-height:1.65}.row b{width:180px;flex:none;color:#718c96}.row span{color:#a9bbc0}.nationGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:20px}.nationCard{background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:18px;cursor:pointer;min-height:178px;transition:.15s}.nationCard:hover{border-color:#6d8992;background:#10242c;transform:translateY(-1px)}.nationCard .code{font-size:9px;color:#6f8d97;letter-spacing:1.5px}.nationCard h3{margin:10px 0 6px;font-size:17px}.nationCard .en{font-size:8px;color:#78939c;letter-spacing:.5px;margin-bottom:10px}.nationCard p{font-size:10px;line-height:1.7;color:#849ba3;margin:0}.nationHead{display:flex;justify-content:space-between;align-items:flex-start;gap:15px}.nationBadge{font-size:9px;color:#83a5ae;border:1px solid #31505a;padding:6px 8px;white-space:nowrap}.sectionGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:20px}.sectionBox{background:#09161d;border:1px solid #203640;padding:17px;border-radius:5px}.sectionBox h3{font-size:11px;color:#a9c0c6;margin:0 0 10px;letter-spacing:.5px}.sectionBox p,.sectionBox li{font-size:10px;line-height:1.8;color:#8ea5ad}.sectionBox ul{padding-left:18px;margin:0}.minor{font-size:9px;color:#657d86;margin-top:15px}.footer{height:30px;flex:none;border-top:1px solid var(--line);padding:8px 14px;font-size:9px;color:#536a73;display:flex;justify-content:space-between}.restrictedPage .info{border-color:#465047}.restrictedGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.lock{display:inline-block;border:1px solid #4a554d;padding:5px 8px;font-size:8px;color:#9ca99f;letter-spacing:1px}.restrictedNote{font-size:10px;color:#8c9990;line-height:1.8}
+.modal{position:absolute;inset:0;background:#020609cc;display:flex;align-items:center;justify-content:center;z-index:20}
+/* v7: password dialogs must sit above the archive stacking layers */
+.modal{z-index:10000!important;position:fixed!important;pointer-events:auto!important}
+#restrictedLoginModal{z-index:10001!important}
+#restrictedLoginModal .login{pointer-events:auto!important}
+#archive .side{position:relative;z-index:70}
+#archive .restrictedGate{position:relative;z-index:80;cursor:pointer!important;pointer-events:auto!important}.login{width:min(410px,calc(100% - 28px));background:#0b171e;border:1px solid #39515b;box-shadow:0 20px 60px #000;padding:24px}.login h2{margin:0 0 6px;font-size:16px;letter-spacing:2px}.login p{font-size:10px;color:#718891;margin:0 0 18px}.login input{width:100%;background:#050c10;border:1px solid #304650;color:#e2f0f4;padding:10px;outline:none}.login button{margin-top:10px;width:100%;padding:9px;border:1px solid #48616b;background:#142932;color:#dcebef;cursor:pointer}.error{height:15px;color:#bd8e8e;font-size:9px;margin-top:7px}@media(max-width:1100px){.side{width:205px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.nationGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.content{padding:24px 22px 36px}}
+@media(max-width:760px){body{overflow:hidden}.bar{height:34px;padding:0 10px;font-size:9px}.app{height:calc(100% - 34px);display:block}.side{width:100%;height:74px;border-right:0;border-bottom:1px solid var(--line);padding:7px 9px;display:flex;flex-direction:column;gap:6px}.logo{font-size:15px;letter-spacing:3px;line-height:17px}.sub,.status{display:none}.navs{display:flex;gap:5px;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none}.navs::-webkit-scrollbar{display:none}.nav{flex:0 0 auto;font-size:8.5px;padding:7px 9px;margin:0;border:1px solid #1b3039;border-radius:4px}.main{height:calc(100% - 74px);display:flex}.top{height:54px;padding:0 11px;gap:8px}.crumb{font-size:8px;max-width:40%}.search{width:60%;padding:9px;font-size:9px}.content{padding:17px 12px 30px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.card{min-height:125px;padding:14px}.card h2{font-size:13px;margin:8px 0 6px}.card p{font-size:9px;line-height:1.6}.tag{font-size:7px}h1{font-size:22px}.lead{font-size:10px;margin-bottom:16px}.nationGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.nationCard{min-height:155px;padding:13px}.nationCard h3{font-size:13px}.nationCard p{font-size:9px;line-height:1.6}.nationCard .code{font-size:7px}.nationCard .en{font-size:7px}.info{padding:16px}.info h2{font-size:19px}.info .meta{font-size:8px}.info>p{font-size:10px;line-height:1.8}.row{font-size:9px;padding:10px 0}.row b{width:112px}.sectionGrid,.restrictedGrid{grid-template-columns:1fr;gap:9px}.sectionBox{padding:13px}.sectionBox h3{font-size:10px}.sectionBox p,.sectionBox li{font-size:9px;line-height:1.7}.footer{display:none}.file{left:20px;top:24px}.file.restricted{left:132px}.fileicon{width:45px;height:54px}.file small{font-size:8px}}
+@media(max-width:430px){.grid{grid-template-columns:1fr}.nationGrid{grid-template-columns:1fr 1fr}.card{min-height:108px}.nationCard{min-height:150px;padding:11px}.top{height:50px}.side{height:76px}.main{height:calc(100% - 76px)}}
+
+/* ENCYCLOPEDIA / WIKI-LIKE COUNTRY UI */
+.countryLayout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:18px;align-items:start;margin-top:16px}.countryArticle{min-width:0}.countryHero{background:linear-gradient(135deg,#0d1b23,#09141a);border:1px solid var(--line2);border-radius:6px;padding:22px 24px;margin-bottom:14px}.countryHero .eyebrow{font-size:8px;letter-spacing:1.8px;color:#6f8f99;margin-bottom:10px}.countryHero h2{font-size:29px;line-height:1.25;margin:0 0 4px;letter-spacing:.3px}.countryHero .roman{font-size:10px;color:#78939c;letter-spacing:1px}.countryHero .lede{font-size:11px;line-height:1.95;color:#a6b8bd;margin:17px 0 0;max-width:900px} .countryTags{display:flex;flex-wrap:wrap;gap:6px;margin-top:15px}.countryTags span{border:1px solid #2b4650;border-radius:3px;padding:5px 7px;font-size:8px;color:#8eabb3;background:#09151b}.wikiNav{border:1px solid var(--line);background:#09151b;border-radius:5px;padding:12px 14px;margin-bottom:14px}.wikiNav .navTitle{font-size:9px;letter-spacing:1.2px;color:#7e9ba4;margin-bottom:8px}.wikiNav .navLinks{display:flex;flex-wrap:wrap;gap:5px}.wikiNav a{color:#91aeb6;text-decoration:none;border:1px solid #1e353e;padding:5px 7px;border-radius:3px;font-size:8px}.wikiNav a:hover{background:#132831;color:#e2eef1}.toc{border:1px solid var(--line);background:#09151b;border-radius:5px;padding:15px 17px;margin-bottom:14px}.tocTitle{font-size:12px;font-weight:bold;margin-bottom:10px}.toc ol{margin:0;padding-left:20px}.toc li{font-size:9px;line-height:1.9;color:#839ba3}.toc a{color:#91adb5;text-decoration:none}.toc a:hover{text-decoration:underline}.articleSection{background:#09161d;border:1px solid #203640;border-radius:5px;margin:0 0 12px;overflow:hidden}.articleSection summary{cursor:pointer;list-style:none;padding:15px 17px;font-size:14px;font-weight:bold;color:#b9cbd0;background:#0b1920;border-bottom:1px solid transparent}.articleSection[open] summary{border-bottom-color:#203640}.articleSection summary::-webkit-details-marker{display:none}.articleSection summary:before{content:'＋';display:inline-block;width:18px;color:#6f8f99}.articleSection[open] summary:before{content:'−'}.articleBody{padding:16px 18px 19px}.articleBody p{font-size:10.5px;line-height:2;color:#93a9af;margin:0 0 12px}.articleBody p:last-child{margin-bottom:0}.articleBody ul{margin:5px 0 0;padding-left:19px}.articleBody li{font-size:10px;line-height:1.95;color:#91a8ae;margin:2px 0}.subheading{font-size:10px;color:#a9c0c6;font-weight:bold;margin:16px 0 7px}.subheading:first-child{margin-top:0}.infobox{border:1px solid var(--line2);background:#09151b;border-radius:5px;overflow:hidden;position:sticky;top:4px}.infoboxTitle{padding:14px 15px;background:#101f27;border-bottom:1px solid var(--line);font-size:13px;font-weight:bold}.infoboxVisual{height:145px;margin:14px;border:1px solid #29434c;background:radial-gradient(circle at 50% 48%,#203943 0,#0c1a21 52%,#071016 100%);display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}.infoboxVisual:before{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent 38%,#ffffff08 39%,transparent 41%,transparent 60%,#ffffff05 61%,transparent 63%)}.infoboxVisual strong{font-size:27px;letter-spacing:4px;color:#c2d3d7;position:relative}.infoboxVisual small{position:absolute;bottom:9px;font-size:7px;color:#6f8b94;letter-spacing:1px}.infoboxRows{border-top:1px solid var(--line)}.iboxRow{display:grid;grid-template-columns:92px 1fr;border-bottom:1px solid #1c3038;min-height:34px}.iboxRow b{padding:9px 9px;color:#718b94;background:#0b171d;font-size:8px}.iboxRow span{padding:9px;color:#9bb0b6;font-size:8.5px;line-height:1.55}.infoboxFoot{padding:11px 12px;font-size:7.5px;line-height:1.6;color:#647c84}.factGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:10px 0 4px}.fact{border:1px solid #203640;background:#0a171e;padding:10px}.fact b{display:block;font-size:8px;color:#6f8d96;margin-bottom:4px}.fact span{font-size:9px;line-height:1.55;color:#a0b3b8}.timeline{border-left:2px solid #29444e;margin:7px 0 3px 5px;padding-left:17px}.event{position:relative;margin:0 0 15px}.event:before{content:'';position:absolute;left:-24px;top:4px;width:7px;height:7px;border:2px solid #48636c;background:#0a151b;border-radius:50%}.event .date{font-size:8px;color:#71909a;letter-spacing:1px}.event .eventTitle{font-size:10px;font-weight:bold;color:#aabfc5;margin:4px 0}.event p{margin:0;font-size:9.5px}.sourceNote{border-left:3px solid #48626b;background:#0b1920;padding:11px 13px;font-size:8.5px;line-height:1.75;color:#718991;margin-top:12px}.countryTools{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}.countryTools button{border:1px solid #2b4650;background:#0b171e;color:#9bb0b6;padding:7px 9px;border-radius:3px;font-size:8px;cursor:pointer}.countryTools button:hover{background:#142832}.restrictedGate{border-color:#665e47!important}.restrictedGate .lock{border-color:#665e47;color:#b6a987}.restrictedTabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;margin:10px 0 16px}.restrictedTabs button{flex:0 0 auto;border:1px solid #435047;background:#0b1713;color:#a7b1a8;padding:7px 9px;font-size:8px;border-radius:3px;cursor:pointer}.restrictedTabs button.active{background:#1a2920;color:#d4ddd4;border-color:#6c806f}.restrictedPanel{display:none}.restrictedPanel.active{display:block}
+@media(max-width:900px){.countryLayout{grid-template-columns:1fr}.infobox{position:static;order:-1}.countryHero h2{font-size:24px}}
+@media(max-width:760px){.countryHero{padding:17px}.countryHero h2{font-size:21px}.countryHero .lede{font-size:10px}.wikiNav{padding:10px}.toc{padding:12px}.articleSection summary{font-size:12px;padding:13px}.articleBody{padding:13px 14px 16px}.articleBody p,.articleBody li{font-size:9.5px;line-height:1.85}.factGrid{grid-template-columns:1fr 1fr}.infoboxVisual{height:120px;margin:10px}.iboxRow{grid-template-columns:82px 1fr}.iboxRow b,.iboxRow span{font-size:7.5px;padding:8px}.countryTools button{font-size:7.5px}}
+
+
+.archivePulse{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 13px}
+.archivePulse span{border:1px solid #1c363f;background:#07131a;padding:6px 8px;border-radius:3px;font-size:7px;letter-spacing:1px;color:#66818a}
+.archivePulse b{color:#a8c7cf;margin-right:3px;font-size:8px}
+
+/* === UI REFINEMENT / DENSE ARCHIVE TERMINAL === */
+:root{
+ --bg:#04090d;--panel:#08131a;--panel2:#0b1a22;--panel3:#0e222b;
+ --line:#1b323c;--line2:#31515c;--text:#dce9ed;--muted:#78919a;
+ --accent:#9dc4ce;--accent2:#6ea7b4;--good:#79c49e;--warn:#bca878;
+}
+html{background:#04090d}
+body{font-family:Inter,Arial,"Noto Sans KR",sans-serif;letter-spacing:.01em}
+.bar{height:34px;background:linear-gradient(90deg,#0c171e,#101e25 55%,#0a151b);box-shadow:0 1px 0 #000}
+.dot{width:8px;height:8px;box-shadow:0 0 8px #000}
+.desktop{background:
+ radial-gradient(circle at 78% 30%,#17333c 0,transparent 28%),
+ radial-gradient(circle at 28% 70%,#0d242c 0,transparent 24%),
+ linear-gradient(135deg,#04090d,#071218 55%,#03070a)}
+.file{top:28px;left:34px;transition:.2s}
+.file:hover{transform:translateY(-3px)}
+.fileicon{background:linear-gradient(145deg,#eef5f5,#b9ccd1);box-shadow:0 10px 30px #0009}
+.file small{font-weight:600;letter-spacing:.4px}
+.hint{left:34px;top:126px;letter-spacing:1px}
+
+.archive{background:#050b0f}
+.appbar{height:34px}
+.side{width:248px;padding:18px 12px;background:linear-gradient(180deg,#08131a,#071117);box-shadow:inset -1px 0 #000}
+.logo{font-size:20px;letter-spacing:5px}
+.sub{margin:3px 0 17px;font-size:7px;color:#607983}
+.navs{display:flex;flex-direction:column;gap:2px}
+.nav{position:relative;padding:9px 11px;border:1px solid transparent;border-radius:5px;font-size:10px}
+.nav:before{content:"";display:inline-block;width:5px;height:5px;border:1px solid #49636c;border-radius:1px;margin:0 9px 1px 0;opacity:.75}
+.nav:hover,.nav.active{background:linear-gradient(90deg,#102832,#0d2028);border-color:#203d47;color:#edf7fa}
+.nav.active:before{background:var(--accent2);border-color:var(--accent2);box-shadow:0 0 8px #6ea7b455}
+.status{font-size:8px;border-top-color:#1a3038;padding:12px 7px 0}
+
+.main{background:#050b0f}
+.top{height:60px;padding:0 24px;background:linear-gradient(180deg,#09151c,#071117);border-bottom-color:#1b323c}
+.crumb{font-size:9px;letter-spacing:1px;color:#75919a}
+.search{height:34px;width:320px;border-radius:5px;background:#050d12;border-color:#27434d;box-shadow:inset 0 1px 8px #0005}
+.search:focus{border-color:#537a84;box-shadow:0 0 0 2px #6ea7b415,inset 0 1px 8px #0005}
+.content{padding:24px 28px 34px}
+.page{max-width:1500px}
+h1{font-size:28px;letter-spacing:3px}
+.lead{font-size:10px;max-width:900px;margin-bottom:18px;color:#8299a1}
+
+#homePage:before{
+ content:"SECURE KNOWLEDGE NETWORK  /  07 NATIONS  /  LIVE ARCHIVE";
+ display:block;width:max-content;max-width:100%;font-size:7px;letter-spacing:1.8px;color:#55727c;
+ border:1px solid #193039;background:#071218;padding:6px 8px;border-radius:3px;margin-bottom:12px;
+}
+.grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.card{position:relative;overflow:hidden;background:linear-gradient(145deg,#0b1b23,#09161d);border-color:#1c3741;border-radius:5px;padding:16px;min-height:132px;box-shadow:0 6px 18px #0002}
+.card:after{content:"";position:absolute;right:-22px;bottom:-28px;width:85px;height:85px;border:1px solid #294650;border-radius:50%;opacity:.28}
+.card:hover{border-color:#547783;background:linear-gradient(145deg,#10262f,#0b1920);transform:translateY(-2px);box-shadow:0 10px 25px #0005}
+.card .tag{font-size:7px;letter-spacing:1.5px;color:#668995}
+.card h2{font-size:14px;letter-spacing:.5px;margin:9px 0 7px}
+.card p{font-size:9px;line-height:1.7;max-width:90%}
+.card:nth-child(1){grid-column:span 2;min-height:150px;background:linear-gradient(135deg,#102630,#0a171e)}
+.card:nth-child(3){background:linear-gradient(135deg,#0d2028,#09161c)}
+.card:nth-child(5),.card:nth-child(8){background:linear-gradient(135deg,#0b1c22,#081319)}
+
+.info{background:linear-gradient(145deg,#0b181f,#09151b);border-color:#1d3740;box-shadow:0 8px 28px #0002}
+.back{border-color:#27444e;background:#08151b;transition:.15s}
+.back:hover{background:#102630;border-color:#52727c}
+.rows{margin-top:18px}
+.row{padding:10px 0;border-bottom-color:#193039}
+.row b{width:210px;color:#69848d;font-size:9px}
+.row span{font-size:9.5px}
+
+.nationGrid{grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:14px}
+.nationCard{min-height:185px;padding:15px;background:linear-gradient(145deg,#0b1a21,#09151b);border-color:#1b363f}
+.nationCard:hover{background:#0e232c;border-color:#587a84}
+.nationCard .code{font-size:7px;letter-spacing:1.6px}
+.nationCard h3{font-size:15px;margin:9px 0 4px}
+.nationCard .en{font-size:7px}
+.nationCard p{font-size:9px;line-height:1.65}
+.countryTags{gap:4px}
+.countryTags span{font-size:7px;padding:4px 6px;background:#08151a;border-color:#213d46}
+
+.countryLayout{grid-template-columns:minmax(0,1fr) 315px;gap:12px;margin-top:12px}
+.countryHero{padding:19px 21px;background:linear-gradient(135deg,#10232b,#09151b);border-color:#284852}
+.countryHero h2{font-size:27px}
+.countryHero .lede{font-size:10px;line-height:1.8;margin-top:12px}
+.wikiNav,.toc{background:#08151b;border-color:#1b353e}
+.wikiNav{padding:10px 12px}
+.toc{padding:13px 15px}
+.tocTitle{font-size:11px}
+.articleSection{border-color:#1b343d;background:#08151b;margin-bottom:8px}
+.articleSection summary{padding:12px 15px;font-size:12px;background:#0a1820}
+.articleBody{padding:13px 16px 15px}
+.articleBody p,.articleBody li{font-size:9.5px;line-height:1.8}
+.infobox{border-color:#294650;background:#08151b}
+.infoboxTitle{padding:12px 14px;background:#0e2028}
+.infoboxVisual{height:125px;margin:11px}
+.iboxRow{grid-template-columns:88px 1fr}
+.iboxRow b,.iboxRow span{font-size:8px;padding:8px}
+.sourceNote{font-size:8px}
+
+.restrictedTabs{background:#071117;border:1px solid #1d3438;padding:5px;border-radius:5px}
+.restrictedTabs button{padding:7px 10px}
+.sectionGrid{gap:9px}
+.sectionBox{padding:14px;background:#08161c;border-color:#1b353e}
+.sectionBox h3{font-size:10px}
+.sectionBox p,.sectionBox li{font-size:9px}
+
+@media(max-width:1200px){
+ .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .nationGrid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:900px){
+ .side{width:210px}
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .card:nth-child(1){grid-column:span 2}
+ .nationGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .content{padding:20px}
+ .search{width:260px}
+}
+@media(max-width:760px){
+ .bar{height:32px}
+ .app{height:calc(100% - 32px)}
+ .side{height:78px;padding:7px 9px;background:#071117}
+ .logo{font-size:14px}
+ .nav{font-size:8px;padding:6px 8px}
+ .nav:before{display:none}
+ .main{height:calc(100% - 78px)}
+ .top{height:50px;padding:0 10px}
+ .search{width:57%;height:31px}
+ .content{padding:14px 10px 24px}
+ #homePage:before{font-size:6px;letter-spacing:1px}
+ h1{font-size:21px}
+ .lead{font-size:9px;line-height:1.7}
+ .grid{gap:8px}
+ .card,.card:nth-child(1){grid-column:span 1;min-height:120px;padding:13px}
+ .card:nth-child(1){grid-column:span 2;min-height:135px}
+ .nationGrid{gap:8px}
+ .nationCard{min-height:155px;padding:12px}
+ .countryHero h2{font-size:21px}
+}
+@media(max-width:430px){
+ .grid{grid-template-columns:1fr 1fr}
+ .card:nth-child(1){grid-column:span 2}
+ .card{min-height:116px}
+ .nationGrid{grid-template-columns:1fr 1fr}
+ .search{font-size:8px}
+}
+
+/* v8: denser COL-X command desktop + mobile safe-area */
+html,body{height:100dvh!important;min-height:100dvh!important}
+.screen{height:100dvh!important;min-height:100dvh!important}
+#boot{height:100dvh!important;min-height:100dvh!important;overflow:hidden!important}
+#boot .desktop{height:calc(100% - 30px)!important;min-height:0!important}
+.taskbar{bottom:env(safe-area-inset-bottom,0px)!important}
+.desktop-search{bottom:calc(58px + env(safe-area-inset-bottom,0px))!important}
+.desktop-utility{bottom:calc(56px + env(safe-area-inset-bottom,0px))!important}
+.hint{bottom:calc(56px + env(safe-area-inset-bottom,0px))!important}
+.start-menu{bottom:calc(48px + env(safe-area-inset-bottom,0px))!important}
+.desktop{background-color:#06151b!important;background-image:
+ radial-gradient(circle at 72% 42%,rgba(39,151,163,.18),transparent 24%),
+ radial-gradient(circle at 17% 68%,rgba(25,102,120,.14),transparent 27%),
+ linear-gradient(125deg,rgba(55,154,169,.07) 0 1px,transparent 1px 80px),
+ linear-gradient(35deg,rgba(55,154,169,.045) 0 1px,transparent 1px 96px),
+ linear-gradient(180deg,#071a22 0%,#07151b 46%,#041017 100%)!important}
+.desktop:after{opacity:.7!important;background:
+ radial-gradient(circle at 50% 54%,transparent 0 22%,rgba(89,185,195,.035) 22.2%,transparent 23%),
+ linear-gradient(90deg,transparent 0 8%,rgba(91,184,196,.05) 8.1%,transparent 8.2% 91.8%,rgba(91,184,196,.04) 91.9%,transparent 92%),
+ repeating-linear-gradient(0deg,transparent 0 39px,rgba(117,180,190,.025) 40px,transparent 41px)!important}
+/* more visible desktop modules */
+.desktop-ambient .nodefield{position:absolute;inset:0;pointer-events:none}
+.desktop-ambient .nodefield i{position:absolute;width:5px;height:5px;border:1px solid rgba(129,207,216,.65);border-radius:50%;box-shadow:0 0 11px rgba(79,190,205,.55);background:#0a1b21}
+.desktop-ambient .nodefield i:nth-child(1){left:31%;top:24%}.desktop-ambient .nodefield i:nth-child(2){left:44%;top:18%}.desktop-ambient .nodefield i:nth-child(3){left:58%;top:31%}.desktop-ambient .nodefield i:nth-child(4){left:73%;top:24%}.desktop-ambient .nodefield i:nth-child(5){left:82%;top:48%}.desktop-ambient .nodefield i:nth-child(6){left:65%;top:63%}.desktop-ambient .nodefield i:nth-child(7){left:39%;top:57%}.desktop-ambient .nodefield i:nth-child(8){left:21%;top:46%}
+.desktop-ambient .nodefield:before{content:"";position:absolute;left:21%;top:18%;width:62%;height:46%;background:linear-gradient(32deg,transparent 49.7%,rgba(100,190,201,.10) 50%,transparent 50.3%),linear-gradient(148deg,transparent 49.7%,rgba(100,190,201,.07) 50%,transparent 50.3%);opacity:.7}
+.desktop-ambient .module{position:absolute;border:1px solid rgba(110,180,191,.22);background:linear-gradient(145deg,rgba(7,28,36,.86),rgba(5,16,22,.58));backdrop-filter:blur(8px);box-shadow:0 18px 45px rgba(0,0,0,.18);color:#86aab2;pointer-events:none}
+.desktop-ambient .module .mt{font:700 8px/1.2 monospace;letter-spacing:1.5px;color:#b0c9ce}
+.desktop-ambient .module .ms{font:7px/1.6 monospace;color:#5d7f88;margin-top:6px}
+.desktop-ambient .module .barline{height:4px;background:#10262e;margin-top:7px;overflow:hidden}.desktop-ambient .module .barline i{display:block;height:100%;background:linear-gradient(90deg,#4c9ba8,#91c9c9);box-shadow:0 0 9px rgba(90,192,204,.35)}
+.desktop-ambient .m1{left:31px;top:48%;width:190px;padding:12px}.desktop-ambient .m2{right:31px;top:55%;width:210px;padding:12px}.desktop-ambient .m3{left:31px;bottom:105px;width:310px;padding:11px}.desktop-ambient .m4{right:31px;bottom:105px;width:260px;padding:11px}
+.desktop-ambient .m2 .rowx{display:flex;justify-content:space-between;border-bottom:1px solid rgba(92,139,148,.13);padding:5px 0;font:7px monospace}.desktop-ambient .m2 .ok{color:#7bc09e}.desktop-ambient .m3 .wave{height:30px;margin-top:7px;background:linear-gradient(90deg,transparent 0 4%,rgba(96,186,198,.18) 4% 5%,transparent 5% 8%,rgba(96,186,198,.55) 8% 8.5%,transparent 8.5% 12%,rgba(96,186,198,.22) 12% 13%,transparent 13% 17%,rgba(96,186,198,.7) 17% 17.6%,transparent 17.6% 22%,rgba(96,186,198,.2) 22% 23%,transparent 23%);border-bottom:1px solid rgba(95,176,187,.16)}
+.desktop-ambient .m4 .miniMap{height:38px;margin-top:7px;background:linear-gradient(90deg,transparent 49%,rgba(98,174,185,.18) 50%,transparent 51%),linear-gradient(0deg,transparent 49%,rgba(98,174,185,.18) 50%,transparent 51%);border:1px solid rgba(94,151,161,.13);position:relative}.desktop-ambient .m4 .miniMap:after{content:"";position:absolute;width:6px;height:6px;border-radius:50%;background:#d0b36c;box-shadow:0 0 12px #c9a65e;left:64%;top:34%}
+.desktop-ambient .warning-chip{position:absolute;right:260px;top:32%;padding:7px 10px;border:1px solid rgba(184,157,93,.34);background:rgba(45,35,18,.38);color:#bda873;font:7px monospace;letter-spacing:1.2px;box-shadow:0 0 18px rgba(193,157,82,.07)}
+.desktop-ambient .section-label{position:absolute;left:31px;top:21%;font:700 8px monospace;letter-spacing:2.5px;color:rgba(145,194,201,.55)}
+.desktop-ambient .section-label:after{content:"";display:inline-block;width:90px;height:1px;margin:0 0 3px 10px;background:linear-gradient(90deg,rgba(112,192,202,.4),transparent)}
+.desktop-file{z-index:12!important}.desktop-file .fileicon{box-shadow:0 7px 22px rgba(0,0,0,.55),0 0 0 1px rgba(164,191,198,.08)!important}.desktop-file.restricted .fileicon{box-shadow:0 7px 22px rgba(0,0,0,.55),0 0 18px rgba(191,165,93,.10)!important}
+@media(max-width:760px){
+ .desktop-ambient .nodefield{opacity:.62}.desktop-ambient .m1{left:14px;top:48%;width:155px;padding:9px}.desktop-ambient .m2{right:14px;top:58%;width:150px;padding:9px}.desktop-ambient .m3{left:14px;bottom:92px;width:210px;padding:8px}.desktop-ambient .m4{right:14px;bottom:92px;width:165px;padding:8px}.desktop-ambient .warning-chip{right:14px;top:31%;font-size:6px}.desktop-ambient .section-label{left:14px;top:22%;font-size:6px}.desktop-ambient .section-label:after{width:42px}.desktop-ambient .module .mt{font-size:7px}.desktop-ambient .module .ms,.desktop-ambient .module .rowx{font-size:6px}.desktop-ambient .m3 .wave{height:23px}.desktop-ambient .m4 .miniMap{height:28px}.desktop-ambient .datastream{bottom:122px!important}.desktop-status-strip{bottom:70px!important}
+ .taskbar{height:48px!important}.desktop-search{bottom:calc(59px + env(safe-area-inset-bottom,0px))!important}.desktop-utility{bottom:calc(55px + env(safe-area-inset-bottom,0px))!important}.hint{display:none!important}
+}
+</style>
+<style id="os-redesign">
+/* ===== DESKTOP OS REDESIGN ===== */
+:root{
+ --os-bg:#070b10; --os-panel:#0d141b; --os-panel2:#111b23;
+ --os-line:#2a3944; --os-soft:#6f808c; --os-text:#e7eef1;
+ --os-accent:#9bc6d0; --os-green:#78c69f; --os-blue:#5c9eb0;
+}
+body{background:#05080c!important;color:var(--os-text);font-family:Inter,Segoe UI,Arial,"Noto Sans KR",sans-serif}
+.screen{position:relative;overflow:hidden}
+#boot{background:
+ radial-gradient(circle at 78% 18%,rgba(52,91,105,.18),transparent 27%),
+ radial-gradient(circle at 18% 75%,rgba(33,70,81,.14),transparent 30%),
+ linear-gradient(145deg,#070b10 0%,#0a1117 48%,#05080c 100%)}
+#boot .bar{
+ height:30px;background:rgba(8,13,18,.92);border-bottom:1px solid #27343d;
+ backdrop-filter:blur(14px);padding:0 12px;font-size:9px;letter-spacing:.6px
+}
+#boot .desktop{height:calc(100% - 30px);background:transparent}
+.desktop-file{transition:transform .15s,filter .15s}
+.desktop-file.selected{filter:drop-shadow(0 0 8px rgba(131,191,205,.3))}
+.fileicon{border-radius:7px!important;border:1px solid #aabec5!important}
+.file small{font-size:9px!important;text-shadow:0 2px 5px #000;letter-spacing:.5px}
+.file:hover .fileicon{transform:translateY(-2px);box-shadow:0 12px 30px #000b,0 0 0 1px #799aa5}
+.desktop-wall-label{position:absolute;right:24px;top:22px;color:#31434e;font-size:8px;letter-spacing:2px}
+.hint{top:auto!important;left:24px!important;bottom:56px!important;color:#4e646f!important;font-size:8px!important;letter-spacing:1.2px}
+.taskbar{
+ position:absolute;left:0;right:0;bottom:0;height:40px;z-index:100;
+ display:flex;align-items:center;gap:7px;padding:5px 8px;
+ background:rgba(8,13,18,.92);border-top:1px solid #2a3943;
+ box-shadow:0 -8px 25px #0005;backdrop-filter:blur(18px)
+}
+.task-start,.task-app,.system-tray{
+ height:30px;display:flex;align-items:center;border:1px solid #263842;
+ background:#0d171e;border-radius:5px;padding:0 10px;font-size:9px;color:#9bb1ba;
+}
+.task-start{font-weight:700;color:#d7e5e9;min-width:82px;gap:7px}
+.task-app{border-color:#3b5661;background:#12222a;color:#dbe8eb}
+.task-center{position:absolute;left:50%;transform:translateX(-50%);font-size:8px;letter-spacing:1.4px;color:#506772}
+.task-clock{font-variant-numeric:tabular-nums;letter-spacing:1px;color:#d2e0e4}
+#bootClock{margin-left:auto;min-width:78px;text-align:center}
+
+/* Archive becomes a movable application window on a real-looking desktop. */
+#archive{background:
+ radial-gradient(circle at 70% 20%,rgba(52,100,112,.15),transparent 30%),
+ radial-gradient(circle at 20% 75%,rgba(30,67,79,.12),transparent 28%),
+ #060a0f!important}
+#archive .archive-desktop-glow{position:absolute;inset:0;pointer-events:none}
+#archive .appbar{
+ position:absolute;z-index:60;left:3vw;top:4.5vh;width:94vw;height:40px;
+ border:1px solid #354955;border-bottom-color:#253740;border-radius:9px 9px 0 0;
+ background:linear-gradient(180deg,#17242c,#0d171e);
+ box-shadow:0 12px 40px #0008;cursor:default;padding:0 12px
+}
+#archive .appbar:active{cursor:default}
+.window-controls{display:flex;gap:7px;margin-right:12px}
+.win-dot{width:9px;height:9px;border-radius:50%;display:block;border:1px solid #6c7e85;background:#46535a}
+.win-dot.close{background:#8a6668;border-color:#a67c7f}
+.win-dot.min{background:#8a8262;border-color:#aaa079}
+.win-dot.max{background:#66877c;border-color:#81a995}
+.window-title{font-size:9px;font-weight:600;letter-spacing:1px;color:#c7d7db}
+.window-path{margin-left:auto;color:#526873;font-size:8px;letter-spacing:.8px}
+#archive .app{
+ position:absolute;z-index:50;left:3vw;top:calc(4.5vh + 40px);width:94vw;height:calc(100% - 4.5vh - 40px - 50px);
+ border:1px solid #354955;border-top:0;border-radius:0 0 9px 9px;overflow:hidden;
+ box-shadow:0 18px 70px #000b;background:#070d12
+}
+#archive .side{width:226px;background:linear-gradient(180deg,#0b151c,#081117);padding:16px 11px}
+#archive .logo{font-size:18px}
+#archive .sub{margin-bottom:13px}
+#archive .nav{font-size:9px;padding:8px 10px}
+#archive .main{background:#080e13}
+#archive .top{height:54px;padding:0 18px;background:#0c151c}
+#archive .search{width:300px;height:32px}
+#archive .content{padding:22px 25px 30px}
+#archive .page{max-width:1450px}
+#archive h1{font-size:25px}
+#archive .lead{font-size:9.5px}
+#archive .grid{gap:9px}
+#archive .card{min-height:126px;padding:15px}
+#archive .nationGrid{gap:9px}
+#archive .nationCard{min-height:172px;padding:14px}
+.archive-taskbar{
+ height:38px;position:absolute;z-index:200;background:rgba(7,12,17,.96)
+}
+.archive-taskbar .task-spacer{flex:1}
+.archive-taskbar .system-tray{gap:12px;border:0;background:transparent}
+.tray-status{font-size:8px;color:var(--os-green);letter-spacing:.7px}
+
+/* Better readable density */
+#archive .articleBody p,#archive .articleBody li{font-size:10px;line-height:1.85}
+#archive .articleSection summary{font-size:12px}
+#archive .info{border-radius:7px}
+#archive .card,#archive .nationCard{border-radius:7px}
+
+/* Login dialogs: OS-like floating windows */
+#boot .modal,#archive .modal{
+ background:rgba(1,4,7,.68)!important;backdrop-filter:blur(5px)
+}
+.login{
+ position:relative!important;left:auto!important;top:auto!important;margin:0!important;
+ width:min(430px,calc(100% - 30px));border:1px solid #435864!important;
+ border-radius:9px!important;background:linear-gradient(180deg,#111d25,#0b1319)!important;
+ box-shadow:0 30px 90px #000d!important;padding:0!important;overflow:hidden
+}
+.login h2{padding:16px 19px 0;font-size:13px}
+.login p{padding:0 19px;margin-bottom:14px}
+.login input{margin:0 19px;width:calc(100% - 38px);height:38px;border-radius:5px}
+.login button{margin:10px 19px 19px;width:calc(100% - 38px);height:35px;border-radius:5px}
+.error{padding:0 19px;margin-top:0!important}
+
+/* mobile: retain the full-screen app instead of a tiny floating window */
+@media(max-width:760px){
+ #archive .appbar{left:0;top:0;width:100%;border-radius:0;height:36px}
+ #archive .app{left:0;top:36px;width:100%;height:calc(100% - 74px);border:0;border-radius:0}
+ #archive .window-path{display:none}
+ #archive .side{width:100%;height:76px}
+ #archive .main{height:calc(100% - 76px)}
+ .archive-taskbar{height:38px}
+ .task-center{display:none}
+ .desktop-wall-label{display:none}
+}
+</style>
+<style id="desktop-polish">
+/* desktop polish v3 */
+html,body,#boot{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+body{overscroll-behavior:none}
+.desktop{background-color:#061016;background-image:radial-gradient(circle at 50% 45%,rgba(44,72,83,.18),transparent 34%),linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px),radial-gradient(circle at 70% 20%,#122b34 0,#071319 45%,#03070a 100%);background-size:auto,48px 48px,48px 48px,auto}
+.desktop:before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(120deg,transparent 0 35%,rgba(137,178,190,.035) 50%,transparent 65%);mix-blend-mode:screen}
+.desktop-file{z-index:5;transition:transform .12s ease,filter .12s ease;touch-action:none}
+.desktop-file.selected{filter:drop-shadow(0 0 10px rgba(141,190,204,.18));transform:translateY(-1px)}
+.desktop-file:after{content:"";position:absolute;left:7px;right:7px;bottom:-3px;height:2px;background:transparent;border-radius:2px}.desktop-file.selected:after{background:#8eabb5}
+.file small{font-size:10px;color:#b9cbd0;text-shadow:0 1px 4px #000}
+.hint{top:142px;left:38px;letter-spacing:.8px}
+.desktop-wall-label{z-index:2;top:22px!important;right:30px!important;left:auto!important;font-size:9px!important;letter-spacing:2px!important;color:#66818b!important;opacity:.8}
+.boot-topbar{position:absolute;z-index:20;left:0;right:0;top:0;height:30px;background:rgba(4,10,14,.82);border-bottom:1px solid rgba(119,151,161,.16);backdrop-filter:blur(12px);display:flex;align-items:center;padding:0 13px;color:#718992;font-size:9px;letter-spacing:1px}
+.boot-topbar .brand{font-weight:700;color:#c4d4d8;margin-right:18px}.boot-topbar .menu{display:flex;gap:16px}.boot-topbar .right{margin-left:auto;display:flex;gap:12px;align-items:center}.sysdot{color:#75a991}
+.desktop-search{position:absolute;z-index:4;right:26px;bottom:58px;width:210px;height:30px;border:1px solid rgba(121,151,160,.2);background:rgba(8,17,22,.5);border-radius:7px;color:#718890;padding:0 10px;font-size:9px;outline:none;backdrop-filter:blur(10px)}.desktop-search:focus{border-color:#56737d;color:#b7c8cc}
+.desktop-widgets{position:absolute;z-index:3;right:28px;top:54px;width:190px;display:grid;grid-template-columns:1fr 1fr;gap:7px;pointer-events:none}.widget{border:1px solid rgba(116,149,158,.14);background:rgba(7,17,22,.44);border-radius:8px;padding:9px;backdrop-filter:blur(10px)}.widget b{display:block;font-size:8px;color:#a5bbc0;letter-spacing:1px}.widget span{display:block;margin-top:5px;font-size:9px;color:#657f88}
+.taskbar{backdrop-filter:blur(18px)!important;background:rgba(5,12,16,.88)!important;border-color:rgba(122,155,164,.2)!important}.boot-taskbar{height:42px!important}.task-start{letter-spacing:1px}.task-clock{font-family:"Segoe UI",Arial,sans-serif!important;font-variant-numeric:tabular-nums;font-weight:500;letter-spacing:.7px!important;color:#b8c8cc!important;text-shadow:none!important}.tray-date{color:#647b84;font-size:8px;letter-spacing:.3px}.tray-icon{color:#758c94;font-size:10px}
+.start-menu{position:absolute;z-index:50;left:10px;bottom:48px;width:300px;padding:13px;border:1px solid #304650;background:rgba(8,17,22,.96);border-radius:10px;box-shadow:0 22px 60px #000b;backdrop-filter:blur(18px);display:none}.start-menu.open{display:block}.start-head{font-size:10px;letter-spacing:1.5px;color:#c2d2d6;padding:4px 5px 12px;border-bottom:1px solid #20343c}.start-items{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px}.start-item{padding:10px;border:1px solid #1d3038;border-radius:6px;color:#8199a1;font-size:9px}.start-item:hover{background:#14262e;color:#d9e6e9}
+.context-menu{position:fixed;z-index:100;display:none;width:170px;background:rgba(8,16,21,.97);border:1px solid #334b54;border-radius:7px;box-shadow:0 18px 45px #000b;padding:5px}.context-menu div{padding:8px 10px;color:#8ca3aa;font-size:9px;border-radius:4px}.context-menu div:hover{background:#162a33;color:#e1ecef}
+.archive .app{box-shadow:0 24px 70px rgba(0,0,0,.55)}.archive .appbar{box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.window-controls .win-dot{cursor:pointer}.window-controls .win-dot:hover{filter:brightness(1.35)}
+
+/* v4 interaction polish */
+.password-close{position:absolute;right:7px;top:6px;width:20px;height:20px;border:0;background:transparent;color:#71868d;border-radius:3px;font-size:15px;line-height:18px;cursor:pointer;padding:0}.password-close:hover{background:#24343a;color:#fff}.login{position:relative!important}.archive-exit{position:absolute;right:12px;top:7px;width:28px;height:26px;border:1px solid rgba(160,180,186,.24);background:rgba(8,16,20,.72);color:#a9b9bd;border-radius:5px;font-size:18px;line-height:20px;cursor:pointer;z-index:5}.archive-exit:hover{background:#5a2727;color:#fff;border-color:#9b5555}.appbar .window-path{margin-right:50px}.desktop-file{user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}.desktop-file.long-press{filter:drop-shadow(0 0 14px rgba(150,205,218,.32));transform:scale(1.04)}.desktop-file.dragging{z-index:30;transition:none!important;filter:drop-shadow(0 12px 20px rgba(0,0,0,.35))}.desktop-file .fileicon{pointer-events:none}.desktop-file small{pointer-events:none}.desktop-grid-guide{position:absolute;inset:0;pointer-events:none;display:none}.desktop.rearranging .desktop-grid-guide{display:block}.desktop-grid-guide i{position:absolute;width:1px;height:1px;background:rgba(170,205,214,.18);border-radius:50%}.arrange-toast{position:fixed;left:50%;bottom:62px;transform:translateX(-50%);z-index:120;padding:7px 11px;border:1px solid #314951;background:rgba(8,16,20,.94);border-radius:7px;color:#9db0b5;font-size:9px;letter-spacing:.8px;opacity:0;transition:opacity .15s}.arrange-toast.show{opacity:1}
+@media(max-width:760px){.archive-exit{right:8px;top:5px;width:30px;height:28px}.appbar .window-path{display:none}.desktop-search,.desktop-widgets,.boot-topbar .menu,.desktop-wall-label{display:none!important}.desktop-file{width:88px}.hint{top:130px}.boot-taskbar{height:48px!important}.task-clock{font-size:11px!important}.tray-date{display:none}.start-menu{bottom:54px;left:7px;width:calc(100vw - 14px)}.context-menu{display:none!important}}
+
+/* v5 fixed desktop layout + utility panels */
+.desktop-file{position:absolute!important;z-index:8!important;cursor:pointer!important;touch-action:manipulation!important;transform:none!important}
+.desktop-file.long-press,.desktop-file.dragging,.desktop-file.selected{transform:none!important;filter:none!important}
+.desktop > .file.desktop-file:not(.restricted){left:28px!important;top:28px!important}
+.desktop > .file.desktop-file.restricted{left:140px!important;top:28px!important}
+.desktop-file:hover .fileicon{transform:translateY(-2px)}
+.desktop-file.selected .fileicon{outline:1px solid #789aa5;box-shadow:0 0 0 3px rgba(120,154,165,.10),0 12px 28px #0009}
+.desktop-file:after,.desktop-grid-guide,.arrange-toast{display:none!important}
+.desktop-utility{position:absolute;right:26px;bottom:56px;z-index:12;display:flex;gap:6px;align-items:center}
+.utility-btn{height:30px;min-width:30px;padding:0 9px;border:1px solid rgba(121,151,160,.22);background:rgba(8,17,22,.72);color:#879da4;border-radius:7px;font:9px Inter,Arial,sans-serif;cursor:pointer;backdrop-filter:blur(12px)}
+.utility-btn:hover{background:#14272f;color:#dce8eb;border-color:#55717a}
+.os-panel{position:absolute;z-index:90;right:18px;top:48px;width:300px;max-width:calc(100vw - 36px);padding:14px;border:1px solid #344d57;background:rgba(7,16,21,.97);border-radius:12px;box-shadow:0 24px 70px #000b;backdrop-filter:blur(20px);display:none;color:#9fb1b6}
+.os-panel.open{display:block}.os-panel h3{margin:0 0 10px;font-size:10px;letter-spacing:1.2px;color:#d2dfe2}.panel-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid #1d3038;font-size:9px}.panel-row:last-child{border-bottom:0}.panel-action{border:1px solid #2c444d;background:#0d1a21;color:#94aab1;border-radius:5px;padding:6px 8px;font-size:8px;cursor:pointer}.panel-action.on{background:#17352d;color:#a9d7c0;border-color:#416d5b}.range{width:125px;accent-color:#7eaab4}.notice{padding:9px;border:1px solid #1e353e;background:#0b171d;border-radius:6px;font-size:8px;line-height:1.7;margin-top:7px}.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-top:8px}.calendar-grid span{padding:5px 0;text-align:center;font-size:8px;border-radius:4px}.calendar-grid .today{background:#24414a;color:#eef7f8}.calendar-grid .head{color:#5f7b84}.modal-lite{position:absolute;z-index:95;left:50%;top:50%;transform:translate(-50%,-50%);width:min(430px,calc(100% - 32px));max-height:72%;overflow:auto;border:1px solid #3b555e;background:rgba(8,17,22,.98);border-radius:10px;box-shadow:0 30px 90px #000d;padding:17px;display:none}.modal-lite.open{display:block}.modal-lite h3{margin:0 0 12px;color:#d4e0e3;font-size:12px;letter-spacing:1px}.modal-close{float:right;border:0;background:none;color:#7d939a;font-size:18px;cursor:pointer}.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}.info-cell{padding:9px;border:1px solid #203640;background:#0b171d;border-radius:5px;font-size:8px}.info-cell b{display:block;color:#657f88;margin-bottom:4px}.info-cell span{color:#b2c1c5}.lock-screen{position:absolute;inset:0;z-index:150;background:radial-gradient(circle at 50% 40%,#17313a,#060b10 65%);display:none;align-items:center;justify-content:center;text-align:center}.lock-screen.open{display:flex}.lock-time{font-size:48px;letter-spacing:3px;color:#d8e4e7;font-variant-numeric:tabular-nums}.lock-date{margin-top:7px;font-size:10px;color:#779099}.lock-hint{margin-top:30px;font-size:8px;color:#536c75}.focus-mode .desktop-widgets,.focus-mode .desktop-search,.focus-mode .desktop-utility,.focus-mode .desktop-wall-label{opacity:0;pointer-events:none}.warm-mode{filter:saturate(.82) brightness(.9)}
+@media(max-width:760px){.desktop > .file.desktop-file:not(.restricted){left:12px!important;top:18px!important}.desktop > .file.desktop-file.restricted{left:116px!important;top:18px!important}.desktop-utility{right:9px;bottom:53px;gap:4px}.utility-btn{min-width:29px;padding:0 7px}.os-panel{right:9px;top:45px;width:calc(100vw - 18px)}.modal-lite{max-height:68%}.lock-time{font-size:40px}}
+
+/* v6 worldbook visual layer — richer secure desktop + national flag cards */
+.desktop{overflow:hidden!important;background:
+ radial-gradient(circle at 78% 20%,rgba(57,117,137,.25),transparent 23%),
+ radial-gradient(circle at 18% 78%,rgba(37,91,102,.20),transparent 25%),
+ radial-gradient(circle at 54% 44%,rgba(22,52,62,.42),transparent 38%),
+ linear-gradient(135deg,#07151b 0%,#0a1c24 42%,#061015 100%)!important}
+.desktop:after{content:"";position:absolute;inset:-20%;pointer-events:none;opacity:.34;background:
+ repeating-linear-gradient(118deg,transparent 0 78px,rgba(126,181,194,.035) 79px,transparent 80px),
+ radial-gradient(ellipse at 50% 50%,transparent 0 40%,rgba(0,0,0,.28) 78%);}
+.desktop:before{z-index:1!important;background:
+ linear-gradient(90deg,transparent 0 8%,rgba(118,178,191,.025) 8.1%,transparent 8.2% 91%,rgba(118,178,191,.025) 91.1%,transparent 91.2%),
+ linear-gradient(0deg,transparent 0 12%,rgba(118,178,191,.022) 12.1%,transparent 12.2% 87%,rgba(118,178,191,.022) 87.1%,transparent 87.2%),
+ radial-gradient(circle at 50% 48%,rgba(135,193,203,.055),transparent 35%)!important;}
+.desktop-ambient{position:absolute;z-index:2;inset:0;pointer-events:none;overflow:hidden}
+.desktop-ambient .orbit{position:absolute;border:1px solid rgba(116,174,187,.10);border-radius:50%;width:430px;height:430px;right:9%;top:16%;box-shadow:0 0 60px rgba(70,143,158,.05) inset}
+.desktop-ambient .orbit:before,.desktop-ambient .orbit:after{content:"";position:absolute;border-radius:50%;background:#8bb8c2;box-shadow:0 0 16px rgba(113,184,199,.5)}
+.desktop-ambient .orbit:before{width:4px;height:4px;right:12%;top:20%}.desktop-ambient .orbit:after{width:3px;height:3px;left:16%;bottom:17%}
+.desktop-ambient .scan{position:absolute;left:-10%;right:-10%;top:44%;height:1px;background:linear-gradient(90deg,transparent,rgba(113,179,191,.16),transparent);box-shadow:0 0 22px rgba(113,179,191,.08)}
+.desktop-ambient .corner{position:absolute;color:rgba(121,163,173,.25);font:8px/1.6 monospace;letter-spacing:2px}
+.desktop-ambient .c1{left:31px;bottom:86px}.desktop-ambient .c2{right:31px;bottom:86px;text-align:right}
+.desktop-ambient .signal{position:absolute;right:34px;bottom:115px;width:92px;height:30px;opacity:.34;background:repeating-linear-gradient(90deg,rgba(125,177,187,.4) 0 2px,transparent 2px 6px);mask-image:linear-gradient(90deg,transparent,#000 15%,#000 85%,transparent)}
+.desktop-status-strip{position:absolute;z-index:4;left:31px;right:31px;bottom:76px;height:1px;background:linear-gradient(90deg,rgba(107,158,169,.18),transparent 42%,rgba(107,158,169,.10));pointer-events:none}
+.flagVisual{width:100%;height:76px;border:1px solid #29434c;border-radius:5px;overflow:hidden;background:#061016;display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 28px rgba(0,0,0,.28)}
+.flagVisual svg{display:block;width:100%;height:100%;}
+.nationCard .miniFlag{height:54px;margin:-2px 0 11px;border:1px solid #243e47;border-radius:4px;overflow:hidden;background:#061016}
+.nationCard .miniFlag svg{width:100%;height:100%;display:block}
+.nationCard .codeLine{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.nationCard .codeLine .code{margin:0}.nationCard .fileMark{font-size:7px;color:#536f78;letter-spacing:1px}
+.countryHero .flagHero{width:min(430px,100%);height:125px;margin:0 0 17px;border:1px solid #29434c;border-radius:6px;overflow:hidden;background:#061016;box-shadow:0 16px 40px rgba(0,0,0,.18)}
+.countryHero .flagHero svg{width:100%;height:100%;display:block}
+@media(max-width:760px){.desktop-ambient .orbit{width:270px;height:270px;right:-80px;top:21%}.desktop-ambient .c1,.desktop-ambient .c2{font-size:6px}.desktop-status-strip{left:12px;right:12px}.flagVisual{height:62px}.countryHero .flagHero{height:88px}}
+
+
+/* ===== v7 desktop atmosphere ===== */
+.desktop{background-color:#07151c!important;background-image:
+ radial-gradient(circle at 67% 42%,rgba(52,132,148,.20),transparent 25%),
+ radial-gradient(circle at 28% 72%,rgba(32,91,107,.18),transparent 27%),
+ radial-gradient(circle at 86% 84%,rgba(45,105,119,.13),transparent 23%),
+ linear-gradient(135deg,#07151c 0%,#0a1d25 42%,#061117 100%)!important;}
+.desktop:after{opacity:.5!important;background:
+ repeating-linear-gradient(118deg,transparent 0 74px,rgba(126,181,194,.045) 75px,transparent 77px),
+ linear-gradient(90deg,transparent 0 16%,rgba(105,170,184,.035) 16.1%,transparent 16.3% 83%,rgba(105,170,184,.035) 83.1%,transparent 83.3%),
+ radial-gradient(ellipse at 58% 46%,transparent 0 31%,rgba(0,0,0,.20) 78%)!important;}
+.desktop-ambient .orbit{width:520px!important;height:520px!important;right:8%!important;top:12%!important;border-color:rgba(102,178,192,.16)!important;box-shadow:0 0 90px rgba(61,150,166,.08) inset,0 0 70px rgba(52,133,148,.05)!important}
+.desktop-ambient .orbit:before{width:5px!important;height:5px!important;box-shadow:0 0 20px rgba(113,210,225,.75)!important}
+.desktop-ambient .orbit:after{width:4px!important;height:4px!important}
+.desktop-ambient .radar{position:absolute;right:calc(8% + 74px);top:calc(12% + 74px);width:372px;height:372px;border:1px solid rgba(113,190,203,.13);border-radius:50%;background:repeating-radial-gradient(circle,transparent 0 52px,rgba(113,190,203,.07) 53px 54px);box-shadow:0 0 55px rgba(42,131,149,.08) inset;overflow:hidden}
+.desktop-ambient .radar:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 49.8%,rgba(118,191,202,.10) 50%,transparent 50.2%),linear-gradient(0deg,transparent 49.8%,rgba(118,191,202,.10) 50%,transparent 50.2%)}
+.desktop-ambient .radar:after{content:"";position:absolute;left:50%;top:50%;width:50%;height:1px;transform-origin:left center;background:linear-gradient(90deg,rgba(127,214,224,.65),transparent);box-shadow:0 0 14px rgba(127,214,224,.35);animation:radarSweep 8s linear infinite}
+.desktop-ambient .radar i{position:absolute;width:7px;height:7px;left:66%;top:28%;border-radius:50%;background:#8ed1d6;box-shadow:0 0 16px #70c5d1}
+@keyframes radarSweep{to{transform:rotate(360deg)}}
+.desktop-ambient .crosshair{position:absolute;right:calc(8% + 250px);top:calc(12% + 260px);width:16px;height:16px;border:1px solid rgba(139,207,215,.34);border-radius:50%}
+.desktop-ambient .crosshair:before,.desktop-ambient .crosshair:after{content:"";position:absolute;background:rgba(139,207,215,.34)}
+.desktop-ambient .crosshair:before{left:7px;top:-5px;width:1px;height:24px}.desktop-ambient .crosshair:after{left:-5px;top:7px;width:24px;height:1px}
+.desktop-ambient .telemetry{position:absolute;left:31px;top:31%;width:250px;padding:13px 15px;border:1px solid rgba(106,167,180,.18);border-left:2px solid rgba(121,195,207,.42);background:linear-gradient(135deg,rgba(8,25,32,.72),rgba(7,17,22,.34));backdrop-filter:blur(9px);box-shadow:0 18px 40px rgba(0,0,0,.12)}
+.desktop-ambient .telemetry b{display:block;font:700 9px/1.3 monospace;letter-spacing:2px;color:#aac6cc}.desktop-ambient .telemetry span{display:block;margin-top:7px;font:8px/1.5 monospace;color:#658892}.desktop-ambient .telemetry em{display:block;margin-top:8px;font:7px/1.4 monospace;color:#7bb7a0;font-style:normal;letter-spacing:.8px}
+.desktop-ambient .datastream{position:absolute;left:31px;bottom:118px;font:8px/2 monospace;letter-spacing:3px;color:rgba(123,178,190,.38)}.desktop-ambient .datastream span{font-size:6px;letter-spacing:1.6px;color:rgba(123,178,190,.24)}
+.desktop-ambient .c1,.desktop-ambient .c2{color:rgba(143,193,201,.42)!important}
+.desktop-status-strip{background:linear-gradient(90deg,rgba(107,184,198,.30),rgba(107,184,198,.06) 35%,transparent 62%,rgba(107,184,198,.18))!important}
+@media(max-width:760px){.desktop-ambient .orbit{width:320px!important;height:320px!important;right:-100px!important;top:19%!important}.desktop-ambient .radar{width:235px;height:235px;right:-43px;top:calc(19% + 43px)}.desktop-ambient .crosshair{right:74px;top:calc(19% + 156px)}.desktop-ambient .telemetry{left:14px;top:34%;width:185px;padding:10px 11px}.desktop-ambient .datastream{left:14px;bottom:115px;font-size:7px}.desktop-ambient .c1{left:14px!important;bottom:82px!important}.desktop-ambient .c2{right:14px!important;bottom:82px!important}}
+</style><style id="top-safe-fix">
+/* TOP SAFE ZONE: browser chrome -> secure terminal -> COL-X OS must never cover desktop files */
+.desktop{overflow:hidden;}
+.desktop-file{top:48px!important;z-index:50!important;}
+.desktop-file.restricted{top:48px!important;}
+.boot-topbar{z-index:40!important;}
+.desktop-ambient{z-index:1!important;}
+.hint{top:156px!important;}
+@media(max-width:760px){
+  .desktop-file{top:44px!important;z-index:50!important;}
+  .desktop-file.restricted{top:44px!important;}
+  .hint{top:142px!important;}
+}
+</style>
+
+<style id="mobile-desktop-compat-v10">
+/* Mobile Chrome's "Desktop site" uses a ~980px layout viewport and shrinks the whole page.
+   On touch phones, re-map that viewport to a 390px logical workspace so it visually matches
+   the normal mobile version instead of becoming a tiny, empty desktop canvas. */
+html.force-phone-layout{overflow:hidden!important;background:#04090d!important;}
+html.force-phone-layout body{
+  position:absolute!important;left:0!important;top:0!important;
+  width:390px!important;
+  height:calc(100dvh / var(--phone-scale,1))!important;
+  min-width:390px!important;max-width:390px!important;
+  transform:scale(var(--phone-scale,1));transform-origin:0 0;
+  overflow:hidden!important;
+}
+html.force-phone-layout .screen{width:390px!important;height:100%!important;}
+html.force-phone-layout .bar{height:34px!important;padding:0 10px!important;font-size:9px!important;}
+html.force-phone-layout #boot .desktop{height:calc(100% - 30px)!important;min-height:0!important;}
+html.force-phone-layout .desktop-file{width:88px!important;top:44px!important;z-index:50!important;}
+html.force-phone-layout .desktop>.file.desktop-file:not(.restricted){left:12px!important;top:44px!important;}
+html.force-phone-layout .desktop>.file.desktop-file.restricted{left:116px!important;top:44px!important;}
+html.force-phone-layout .desktop-file .fileicon{width:45px!important;height:54px!important;}
+html.force-phone-layout .desktop-file small{font-size:8px!important;}
+html.force-phone-layout .hint{display:none!important;}
+html.force-phone-layout .desktop-search,
+html.force-phone-layout .desktop-widgets,
+html.force-phone-layout .boot-topbar .menu,
+html.force-phone-layout .desktop-wall-label{display:none!important;}
+
+/* Same density/composition as the normal mobile layout */
+html.force-phone-layout .desktop-ambient .orbit{width:320px!important;height:320px!important;right:-100px!important;top:19%!important;}
+html.force-phone-layout .desktop-ambient .radar{width:235px!important;height:235px!important;right:-43px!important;top:calc(19% + 43px)!important;}
+html.force-phone-layout .desktop-ambient .crosshair{right:74px!important;top:calc(19% + 156px)!important;}
+html.force-phone-layout .desktop-ambient .telemetry{left:14px!important;top:34%!important;width:185px!important;padding:10px 11px!important;}
+html.force-phone-layout .desktop-ambient .datastream{left:14px!important;bottom:115px!important;font-size:7px!important;}
+html.force-phone-layout .desktop-ambient .c1{left:14px!important;bottom:82px!important;font-size:6px!important;}
+html.force-phone-layout .desktop-ambient .c2{right:14px!important;bottom:82px!important;font-size:6px!important;}
+html.force-phone-layout .desktop-ambient .nodefield{opacity:.62!important;}
+html.force-phone-layout .desktop-ambient .m1{left:14px!important;top:48%!important;width:155px!important;padding:9px!important;}
+html.force-phone-layout .desktop-ambient .m2{right:14px!important;top:58%!important;width:150px!important;padding:9px!important;}
+html.force-phone-layout .desktop-ambient .m3{left:14px!important;bottom:92px!important;width:210px!important;padding:8px!important;}
+html.force-phone-layout .desktop-ambient .m4{right:14px!important;bottom:92px!important;width:165px!important;padding:8px!important;}
+html.force-phone-layout .desktop-ambient .warning-chip{right:14px!important;top:31%!important;font-size:6px!important;}
+html.force-phone-layout .desktop-ambient .section-label{left:14px!important;top:22%!important;font-size:6px!important;}
+html.force-phone-layout .desktop-ambient .section-label:after{width:42px!important;}
+html.force-phone-layout .desktop-ambient .module .mt{font-size:7px!important;}
+html.force-phone-layout .desktop-ambient .module .ms,
+html.force-phone-layout .desktop-ambient .module .rowx{font-size:6px!important;}
+html.force-phone-layout .desktop-ambient .m3 .wave{height:23px!important;}
+html.force-phone-layout .desktop-ambient .m4 .miniMap{height:28px!important;}
+html.force-phone-layout .desktop-status-strip{left:12px!important;right:12px!important;bottom:70px!important;}
+html.force-phone-layout .desktop-utility{right:9px!important;bottom:53px!important;gap:4px!important;}
+html.force-phone-layout .utility-btn{min-width:29px!important;padding:0 7px!important;}
+html.force-phone-layout .taskbar{height:48px!important;}
+html.force-phone-layout .boot-taskbar{height:48px!important;}
+html.force-phone-layout .task-clock{font-size:11px!important;}
+html.force-phone-layout .tray-date{display:none!important;}
+html.force-phone-layout .os-panel{right:9px!important;top:45px!important;width:calc(390px - 18px)!important;}
+html.force-phone-layout .modal-lite{max-height:68%!important;}
+html.force-phone-layout .lock-time{font-size:40px!important;}
+
+/* Archive also uses its mobile navigation/content layout in mobile Desktop-site mode. */
+html.force-phone-layout #archive .app{height:calc(100% - 34px)!important;display:block!important;}
+html.force-phone-layout #archive .side{width:100%!important;height:76px!important;border-right:0!important;border-bottom:1px solid var(--line)!important;padding:7px 9px!important;display:flex!important;flex-direction:column!important;gap:6px!important;}
+html.force-phone-layout #archive .logo{font-size:15px!important;letter-spacing:3px!important;line-height:17px!important;}
+html.force-phone-layout #archive .sub,
+html.force-phone-layout #archive .status{display:none!important;}
+html.force-phone-layout #archive .navs{display:flex!important;gap:5px!important;overflow-x:auto!important;overflow-y:hidden!important;-webkit-overflow-scrolling:touch!important;scrollbar-width:none!important;}
+html.force-phone-layout #archive .nav{flex:0 0 auto!important;font-size:8.5px!important;padding:7px 9px!important;margin:0!important;border:1px solid #1b3039!important;border-radius:4px!important;}
+html.force-phone-layout #archive .main{height:calc(100% - 76px)!important;display:flex!important;}
+html.force-phone-layout #archive .top{height:50px!important;padding:0 11px!important;gap:8px!important;}
+html.force-phone-layout #archive .crumb{font-size:8px!important;max-width:40%!important;}
+html.force-phone-layout #archive .search{width:60%!important;padding:9px!important;font-size:9px!important;}
+html.force-phone-layout #archive .content{padding:17px 12px 30px!important;}
+html.force-phone-layout #archive .grid{grid-template-columns:1fr!important;gap:9px!important;}
+html.force-phone-layout #archive .nationGrid{grid-template-columns:1fr 1fr!important;gap:9px!important;}
+html.force-phone-layout #archive .sectionGrid,
+html.force-phone-layout #archive .restrictedGrid{grid-template-columns:1fr!important;gap:9px!important;}
+html.force-phone-layout #archive .countryLayout{grid-template-columns:1fr!important;}
+html.force-phone-layout #archive .infobox{position:static!important;order:-1!important;}
+html.force-phone-layout #archive .countryHero{padding:17px!important;}
+html.force-phone-layout #archive .countryHero h2{font-size:21px!important;}
+html.force-phone-layout #archive .countryHero .lede{font-size:10px!important;}
+html.force-phone-layout #archive .articleSection summary{font-size:12px!important;padding:13px!important;}
+html.force-phone-layout #archive .articleBody{padding:13px 14px 16px!important;}
+html.force-phone-layout #archive .articleBody p,
+html.force-phone-layout #archive .articleBody li{font-size:9.5px!important;line-height:1.85!important;}
+html.force-phone-layout #archive .archive-exit{right:8px!important;top:5px!important;width:30px!important;height:28px!important;}
+html.force-phone-layout #archive .appbar .window-path{display:none!important;}
+</style>
+
+
+<style id="v12-archive-fill">
+.silent-route-card{border-color:#6b6040!important;background:linear-gradient(135deg,#171b18,#111a1c 58%,#242016)!important;position:relative}.silent-route-card:before{content:"RESTRICTED";position:absolute;right:12px;top:11px;font-size:7px;letter-spacing:1.4px;color:#c3ad73;border:1px solid #6b6040;padding:4px 6px;border-radius:3px}.silent-route-card h2{color:#e2d9bd}.silent-route-card p b{color:#d6bf81}.silent-route-action{margin-top:14px;border-top:1px solid #554b31;padding-top:10px;font-size:8px;letter-spacing:1.1px;color:#c0aa70}.world-fill{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px}.world-fill-panel{background:linear-gradient(145deg,#081820,#09141a);border:1px solid #1d3943;border-radius:5px;padding:17px;min-height:150px;position:relative;overflow:hidden}.world-fill-panel:after{content:"";position:absolute;width:110px;height:110px;border:1px solid #24434d;border-radius:50%;right:-48px;bottom:-58px;opacity:.25}.world-fill-panel.wide{grid-column:1/-1;min-height:170px;background:linear-gradient(120deg,#0d252d,#09171d 62%,#0b1519)}.wf-kicker{font-size:7px;letter-spacing:1.7px;color:#63848e;margin-bottom:9px}.world-fill-panel h3{margin:0 0 9px;font-size:14px;letter-spacing:.5px;color:#c4d6db}.world-fill-panel p{margin:0;font-size:9.5px;line-height:1.85;color:#839ca4;max-width:95%}.wf-metrics{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}.wf-metrics span{border:1px solid #24424c;background:#071319;padding:6px 8px;font-size:7px;letter-spacing:.8px;color:#708f98}.wf-metrics b{color:#b8d2d8;margin-right:4px}@media(max-width:760px){.world-fill{grid-template-columns:1fr}.world-fill-panel.wide{grid-column:auto}.world-fill-panel{min-height:125px;padding:14px}.world-fill-panel p{font-size:9px}.silent-route-card:before{font-size:6px;right:8px;top:8px}}
+</style>
+
+<style id="readability-and-silent-profiles">
+/* DETAIL READABILITY: give value columns the space they actually need. */
+#archive .detailPage .row, #archive .rows .row{display:grid;grid-template-columns:minmax(145px,30%) minmax(0,1fr);column-gap:18px;align-items:start;}
+#archive .rows .row b{width:auto!important;white-space:normal;}
+#archive .rows .row span{min-width:0;overflow-wrap:anywhere;word-break:keep-all;}
+/* Silent Zone profile cards */
+.profileGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:0;}
+.profileCard{background:linear-gradient(145deg,#09181d,#071319);border:1px solid #1e3a43;border-radius:6px;padding:15px;min-width:0;}
+.profileCard .pTop{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;border-bottom:1px solid #193039;padding-bottom:10px;margin-bottom:10px;}
+.profileCard h3{margin:0;font-size:15px;color:#c5d5d9;letter-spacing:.4px;}
+.profileCard .pSub{margin-top:4px;font-size:8px;color:#6f8991;letter-spacing:1px;}
+.profileCard .pNo{font-size:8px;color:#607a82;border:1px solid #28424a;padding:4px 6px;border-radius:3px;white-space:nowrap;}
+.profileMeta{display:grid;grid-template-columns:78px minmax(0,1fr);border-top:1px solid #162c34;}
+.profileMeta div{padding:7px 0;border-bottom:1px solid #162c34;font-size:8.5px;line-height:1.6;}
+.profileMeta b{color:#66828b;font-weight:600;}
+.profileMeta span{color:#9db0b5;overflow-wrap:anywhere;word-break:keep-all;}
+.profileDesc{margin:10px 0 0;font-size:9px;line-height:1.8;color:#8fa5ab;}
+.profileTag{display:inline-block;margin-top:8px;margin-right:4px;padding:4px 6px;border:1px solid #27434b;border-radius:3px;color:#78949c;font-size:7.5px;}
+@media(max-width:760px){
+ #archive .rows .row{grid-template-columns:34% minmax(0,1fr);column-gap:10px;}
+ #archive .rows .row b{font-size:8px!important;}
+ #archive .rows .row span{font-size:9px!important;line-height:1.7;}
+ .profileGrid{grid-template-columns:1fr;gap:8px;}
+ .profileCard{padding:13px;}
+ .profileCard h3{font-size:14px;}
+ .profileMeta{grid-template-columns:70px minmax(0,1fr);}
+ .profileMeta div{font-size:8px;}
+ .profileDesc{font-size:8.5px;line-height:1.75;}
+}
+</style>
+</head><body><div class="screen" id="boot"><div class="bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span style="margin-left:8px">SECURE TERMINAL — USER DESKTOP</span></div><div class="desktop">
+<div class="desktop-ambient" aria-hidden="true"><div class="orbit"></div><div class="radar"><i></i></div><div class="scan"></div><div class="signal"></div><div class="crosshair"></div><div class="nodefield"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="section-label">GLOBAL ANOMALY NETWORK</div><div class="warning-chip">⚠ FOG / MARINE WATCH · 014</div><div class="telemetry"><b>IRCA FIELD MONITOR</b><span>MARINE / ATMOSPHERE / COL-X</span><em>LIVE · 07 NODES · LINK STABLE</em></div><div class="module m1"><div class="mt">COL-X ACTIVITY INDEX</div><div class="ms">MOVEMENT / ABSORPTION / GROWTH</div><div class="barline"><i style="width:72%"></i></div><div class="ms">CURRENT LOAD 72% · MONITORING</div></div><div class="module m2"><div class="mt">INTERNATIONAL LINK</div><div class="rowx"><span>TARBESIA</span><span class="ok">ONLINE</span></div><div class="rowx"><span>REKAR</span><span class="ok">ONLINE</span></div><div class="rowx"><span>BRAXEN</span><span class="ok">ONLINE</span></div><div class="rowx"><span>IRCA</span><span class="ok">SECURE</span></div></div><div class="module m3"><div class="mt">OBSERVATION CHANNEL / 07</div><div class="wave"></div><div class="ms">SEA VISIBILITY · WIND · FOG DENSITY · SIGNAL TRACE</div></div><div class="module m4"><div class="mt">MARINE SECTOR MAP</div><div class="miniMap"></div><div class="ms">ORbis / EASTERN EDGE · LINK STABLE</div></div><div class="datastream">07&nbsp;&nbsp; 14&nbsp;&nbsp; 23&nbsp;&nbsp; 41&nbsp;&nbsp; 58&nbsp;&nbsp; 63<br><span>OBSERVATION CHANNEL / SECURE</span></div><div class="corner c1">IRCA / NODE 07<br>ARCHIVE CHANNEL: OPEN<br>ENVIRONMENT: STABLE<br>COL-X SIGNAL: LOW</div><div class="corner c2">SECURE TERMINAL<br>LOCAL CACHE / 68%<br>MONITORING LINK ●<br>FOG INDEX / 014</div></div><div class="desktop-status-strip"></div>
+<div class="file desktop-file" onclick="openLogin()"><div class="fileicon"></div><small>COL-X<br>ARCHIVE</small></div>
+<div class="file restricted desktop-file" onclick="requestRestricted()"><div class="fileicon"></div><small>SILENT ZONE<br>CLASSIFIED</small></div>
+<div class="hint">TAP TO OPEN · SECURE DESKTOP</div><div class="desktop-grid-guide" aria-hidden="true"></div><div class="arrange-toast" aria-live="polite"></div><div class="desktop-wall-label">COL-X // SECURE DESKTOP</div><div class="taskbar" id="bootTaskbar"><div class="task-start">▦ <span>DESKTOP</span></div><div class="task-center">SECURE TERMINAL</div><div class="task-clock" id="bootClock">--:--</div></div><div class="modal" id="loginModal" style="display:none"><div class="login"><button class="password-close" type="button" aria-label="Close" onclick="closeLogin('loginModal')">×</button><h2>FILE ACCESS</h2><p>COL-X ARCHIVE / ENCRYPTED DOCUMENT</p><input id="pw" type="password" placeholder="PASSWORD"><button onclick="unlock()">OPEN FILE</button><div class="error" id="err"></div></div></div></div></div>
+<div class="modal" id="restrictedLoginModal" style="display:none"><div class="login restrictedGate"><button class="password-close" type="button" aria-label="Close" onclick="closeLogin('restrictedLoginModal')">×</button><h2>RESTRICTED ACCESS</h2><p>SILENT ZONE / CLASSIFIED ARCHIVE</p><input id="spw" type="password" placeholder="ACCESS CODE"><button onclick="unlockRestricted()">VERIFY &amp; OPEN</button><div class="error" id="serr"></div></div></div>
+<div class="screen archive" id="archive">
+<div class="archive-desktop-glow"></div>
+<div class="bar appbar" id="archiveTitlebar"><div class="window-controls"><i class="win-dot close"></i><i class="win-dot min"></i><i class="win-dot max"></i></div><span class="window-title">COL-X ARCHIVE — SECURE DATABASE</span><span class="window-path">/secure/archive</span><button class="archive-exit" type="button" aria-label="Return to desktop" onclick="closeArchiveToDesktop()">×</button></div><div class="app">
+<aside class="side"><div class="logo">COL-X</div><div class="sub">INTERNATIONAL ARCHIVE SYSTEM</div><div class="navs">
+<div class="nav active" data-nav="home" onclick="home()">OVERVIEW</div><div class="nav" data-nav="colx" onclick="showDetail('colx')">COL-X</div><div class="nav" data-nav="anomaly" onclick="showDetail('anomaly')">ANOMALIES</div><div class="nav" data-nav="rating" onclick="showDetail('rating')">COL-X RATING</div><div class="nav" data-nav="nations" onclick="showNations()">NATIONS</div><div class="nav" data-nav="icra" onclick="showDetail('icra')">ORGANIZATIONS</div><div class="nav" data-nav="orbis" onclick="showDetail('orbis')">FACILITIES</div><div class="nav" data-nav="institutions" onclick="showDetail('institutions')">INSTITUTIONS / SCHOOLS</div><div class="nav" data-nav="incident" onclick="showDetail('incident')">INCIDENT LOG</div><div class="nav" data-nav="personnel" onclick="showDetail('personnel')">PERSONNEL</div><div class="nav restrictedGate" data-nav="restricted" title="Restricted authentication required" onclick="requestRestricted()">RESTRICTED / SILENT ZONE</div></div><div class="status">SYSTEM STATUS<br><span class="green">● ARCHIVE ONLINE</span><br>IRCA NETWORK / CONNECTED<br>ACCESS LEVEL: PUBLIC</div></aside>
+<main class="main"><div class="top"><span class="crumb" id="crumb">ARCHIVE / OVERVIEW</span><input class="search" id="search" placeholder="Search archive..." onkeydown="searchKey(event)"></div><section class="content">
+<div class="page active" id="homePage"><h1>WORLD ARCHIVE</h1><div class="lead">지구와 유사한 푸른 행성에서 살아가는 인간 사회, 7개국의 국제정치, 생명을 흡수하며 성장하는 COL-X, 안개·해양 위험지역, 국제 대응기관 IRCA, 연구·관측시설과 극비 정적구역을 함께 기록하는 국제 아카이브. 일반 시민에게 공개되는 자료와 연구·기밀 자료는 접근 단계에 따라 분리되며, 국가 상세 기록은 NATIONS 내부에서 관리한다.</div>
+<div class="archivePulse" aria-label="archive status">
+<span><b>07</b> NATIONS</span><span><b>09</b> ARCHIVE NODES</span><span><b>24/7</b> OBSERVATION</span><span><b>SECURE</b> ACCESS CONTROL</span><span><b>CANON</b> CURRENT SETTINGS</span>
+</div><div class="grid">
+<div class="card" onclick="showDetail('colx')"><div class="tag">01 / SPECIES</div><h2>COL-X DATABASE</h2><p>생명체를 흡수하며 성장하는 정체불명의 생명체와 관찰 기록.</p></div>
+<div class="card" onclick="showDetail('anomaly')"><div class="tag">02 / PHENOMENA</div><h2>ANOMALIES</h2><p>안개와 하늘·기상 이상현상, 그리고 COL-X와의 상관관계 기록.</p></div><div class="card" onclick="showDetail('rating')"><div class="tag">03 / RISK</div><h2>COL-X RATING</h2><p>크기만이 아닌 활동성·이동범위·생태영향·안개 동반 여부 등을 종합하는 국제 위험도 체계.</p></div>
+<div class="card" onclick="showNations()"><div class="tag">04 / GEOPOLITICS</div><h2>SEVEN NATIONS</h2><p>7개국의 국가별 상세 기록. 국가 정보는 이 분류에서만 직접 열람한다.</p></div>
+<div class="card" onclick="showDetail('icra')"><div class="tag">05 / ORGANIZATION</div><h2>IRCA</h2><p>국제 COL-X 대응 연합의 구조와 기능.</p></div>
+<div class="card" onclick="showDetail('orbis')"><div class="tag">06 / FACILITY</div><h2>ORBIS</h2><p>거대 해양 COL-X를 관측하는 국제 해양 관측시설.</p></div>
+<div class="card" onclick="showDetail('institutions')"><div class="tag">07 / EDUCATION</div><h2>INSTITUTIONS / SCHOOLS</h2><p>연구소·학교 자체의 직책, 학위, 과목, 시설, 업적, 역사.</p></div>
+<div class="card" onclick="showDetail('incident')"><div class="tag">08 / HISTORY</div><h2>INCIDENT LOG</h2><p>주요 사건과 국제 대응체계의 변화 기록.</p></div>
+<div class="card" onclick="showDetail('personnel')"><div class="tag">09 / ACCESS</div><h2>INFORMATION ACCESS</h2><p>시민·연구자·국제기관·극비 인원의 서로 다른 정보 접근층.</p></div>
+<div class="card silent-route-card" onclick="requestRestricted()"><div class="tag">10 / RESTRICTED</div><h2>SILENT ZONE</h2><p>공개 아카이브와 분리된 극비 생태 격리시설. 별도 인증을 통과한 뒤 제한 기록층으로 진입한다.</p><div class="silent-route-action">LOCKED NODE · OPEN ACCESS GATE →</div></div>
+</div>
+<div class="world-fill">
+  <section class="world-fill-panel wide"><div class="wf-kicker">WORLD STATUS / PUBLIC SUMMARY</div><h3>현재 세계의 기본 구조</h3><p>현대~근미래 수준의 인간 사회와 7개국의 국제질서가 유지되는 한편, 생명체를 흡수하며 성장하는 COL-X가 해양·육상 곳곳에서 관측된다. 일반적인 도시·학교·연구시설의 일상과 국제 대응체계는 동시에 존재하며, 대부분의 시민은 공개된 위험정보만 접한다.</p><div class="wf-metrics"><span><b>07</b> NATIONS</span><span><b>IRCA</b> RESPONSE</span><span><b>ORBIS</b> MARINE</span><span><b>4</b> ACCESS LEVELS</span></div></section>
+  <section class="world-fill-panel"><div class="wf-kicker">OBSERVATION NOTE / FOG</div><h3>안개·해양 위험지역</h3><p>고밀도 안개 지역에서는 COL-X 활동과 이동이 함께 증가하는 경향이 보고된다. 원인은 확정되지 않았으며, 특히 강풍이 겹친 해상에서는 구조·관측·이동 모두가 어려워진다.</p></section>
+  <section class="world-fill-panel"><div class="wf-kicker">INTERNATIONAL NETWORK</div><h3>IRCA ↔ ORBIS</h3><p>IRCA는 국제 정보 공유·위험지역 관리·연구 지원·대응 조율을 담당한다. Orbis Marine Observation Facility는 해양·기상·안개와 대형 COL-X 관측 데이터를 국제망에 공급한다.</p></section>
+  <section class="world-fill-panel"><div class="wf-kicker">CIVILIAN LIFE</div><h3>일상은 계속된다</h3><p>Arvain International School과 같은 공간에서는 학생 생활과 국가별 문화 차이가 이어진다. 거대한 이상현상이 존재해도 세계 전체가 항상 비상상태인 것은 아니다.</p></section>
+  <section class="world-fill-panel"><div class="wf-kicker">CLASSIFIED STRUCTURE</div><h3>정보가 곧 경계선</h3><p>PUBLIC → RESTRICTED → RESEARCH → CONFIDENTIAL 단계에 따라 열람 가능한 기록이 달라진다. 정적구역은 공개 검색 결과에 직접 노출되지 않는 제한 기록층으로 분리되어 있다.</p></section>
+</div></div>
+<div class="page detail" id="nationPage"><button class="back" onclick="home()">← BACK TO ARCHIVE</button><div class="info"><div class="nationHead"><div><h2>SEVEN NATIONS</h2><div class="meta">GEOPOLITICAL ARCHIVE / COUNTRY DIRECTORY</div></div><div class="nationBadge">7 ACTIVE FILES</div></div><p>국가 자체의 지리·행정·교육·연구·COL-X 대응·국제관계·업적·역사를 기록한다. 다른 탭에서는 국가별 상세 파일을 반복 표시하지 않는다.</p><div class="nationGrid" id="nationGrid"></div><div class="minor">※ 미확정 세부사항은 설정 확정 전까지 별도 표기한다.</div></div></div>
+<div class="page detail" id="countryDetailPage"><button class="back" onclick="showNations()">← BACK TO NATIONS</button><div id="countryInfo"></div></div>
+<div class="page detail" id="detailPage"><button class="back" onclick="backFromDetail()">← BACK</button><div class="info"><h2 id="detailTitle"></h2><div class="meta" id="detailMeta"></div><p id="detailText"></p><div class="rows" id="rows"></div></div></div>
+<div class="page detail restrictedPage" id="restrictedPage"><div class="countryTools"><button onclick="home()">← EXIT RESTRICTED ARCHIVE</button><span class="lock">ACCESS LEVEL: RESTRICTED</span></div><div class="info"><div class="nationHead"><div><h2>SILENT ZONE</h2><div class="meta">RESTRICTED / CLASSIFIED ECOLOGICAL ARCHIVE / INTERNAL NODE</div></div></div><p class="restrictedNote">정적구역의 존재·구조·개체 기록은 공개 국제 아카이브와 분리된다. 이 문서는 단일 HTML 내부에 포함된 제한 기록층이며, 접근 인증을 통과한 세션에서만 열람할 수 있다.</p><div class="restrictedTabs"><button class="active" onclick="restrictedTab('overview',this)">개요</button><button onclick="restrictedTab('subjects',this)">개체 기록</button><button onclick="restrictedTab('profiles',this)">프로필</button><button onclick="restrictedTab('zones',this)">생태 구역</button><button onclick="restrictedTab('facility',this)">시설</button><button onclick="restrictedTab('life',this)">생활환경</button><button onclick="restrictedTab('security',this)">보안 기록</button></div>
+<div class="restrictedPanel active" id="r-overview"><div class="sectionGrid"><div class="sectionBox"><h3>정적구역의 정체</h3><p>자연 발생 지역이 아니라 인간이 의도적으로 구축한 극비 연구·격리시설. 일반 시민은 존재 자체를 알지 못하며, 공개 국제 아카이브와 분리된 제한 기록층으로 관리된다.</p></div><div class="sectionBox"><h3>설립 목적</h3><p>식물 유래 비인간 AI를 폐쇄 생태환경 안에 두고 COL-X가 생태에 미치는 영향을 간접적으로 분석하기 위해 조성되었다. 내부 개체는 일반 연구원이나 직원이 아니라 생태학적 분석 도구에 가까운 존재다.</p></div><div class="sectionBox"><h3>핵심 비밀</h3><ul><li>내부 AI는 COL-X의 존재를 직접 알지 못함</li><li>외부 세계의 실제 상황과 시설의 전체 목적을 알지 못함</li><li>인간 사회의 일반적인 생활정보도 제한됨</li><li>외부 연구원과 자유롭게 교류하지 않음</li></ul></div><div class="sectionBox"><h3>분석 지표</h3><ul><li>광량 — 생태환경에 공급되는 빛</li><li>오염도 — 환경 오염 상태</li><li>수분도 — 생태환경의 수분 상태</li><li>향 농도 — 환경 내 향 성분 농도</li><li>주변 생명력 — 주변 생명체의 활동·생명 상태</li><li>습도 — 변동항목이 아닌 고정값</li></ul></div></div></div>
+<div class="restrictedPanel" id="r-subjects"><div class="sectionGrid"><div class="sectionBox"><h3>10개 개체</h3><p>총 10개체의 식물·꽃 유래 비인간 AI. 인간과 유사한 형태를 취할 수 있지만 인간 사회의 구성원은 아니며, 시설의 전체 목적·COL-X·외부 세계에 대한 정보가 의도적으로 제한되어 있다. 각 개체의 꽃과 신체적 특성은 식물 유래 설계와 연결된다.</p><ul><li>해청 — 청색 / 보호자적 성향</li><li>적랑 — 적색 / 활발·호기심</li><li>옥연 — 민트 / 원칙·안정성</li><li>자령 — 보라 / 관찰자·개인주의</li><li>도월 — 분홍 / 거리감 있는 보호자</li><li>유록 — 녹색 / 안정·자연 친화</li><li>운서 — 주황 / 돌봄·행동성</li><li>단야 — 백색 / 연령에 비해 성숙함을 요구</li><li>설흔 — 흑색 / 강한 호기심과 친화성</li><li>침운 — 황색 / 비판적 현실주의</li></ul></div><div class="sectionBox"><h3>공통 생태·행동 원칙</h3><ul><li>식물에 가까운 방식으로 수분·빛 공급을 받음</li><li>일반적인 인간 생활공간과 다른 생리적 요구를 가짐</li><li>COL-X와 외부 세계를 직접 알지 못함</li><li>외부 연구원과 자유롭게 접촉하지 않음</li><li>첫 인간 접촉 등 돌발상황에서도 자율적인 공격 선택권이 제한됨</li><li>공격성의 부재가 아니라 행동 선택권이 설계상 제한된 존재</li></ul></div></div></div>
+<div class="restrictedPanel" id="r-profiles">
+<div class="sectionBox" style="margin-bottom:10px"><h3>개체 프로필 / SUBJECT PROFILES</h3><p>정적구역 내부의 10개 개체에 대한 제한 프로필. 이 기록은 인간식 인사기록이 아니라, 식물 유래 신체·행동 특성·개체 간 관계·관찰상 역할을 함께 기록하는 내부 자료다. 각 개체는 독립된 인격처럼 행동할 수 있지만 시설의 전체 목적과 외부 세계에 대한 정보 접근에는 공통적인 제한이 적용된다.</p></div>
+<div class="profileGrid">
+<div class="profileCard"><div class="pTop"><div><h3>해청</h3><div class="pSub">BLUE / PROTECTOR TYPE</div></div><span class="pNo">SZ-01</span></div><div class="profileMeta"><div><b>연관 꽃</b></div><div><span>청색 계열 꽃</span></div><div><b>성향</b></div><div><span>보호자적 · 차분함 · 책임감</span></div><div><b>관계 경향</b></div><div><span>집단의 상태를 먼저 살피며 어린 개체나 불안정한 개체를 보호하려는 쪽으로 행동한다.</span></div><div><b>관찰 역할</b></div><div><span>집단 안정성, 갈등 완화, 개체 간 의존관계 관찰에 적합.</span></div></div><p class="profileDesc">정적구역 안에서 가장 ‘돌보는 쪽’에 가까운 개체. 직접 지시하기보다 주변 상태를 확인하고 필요한 행동을 먼저 취하는 편이다. 보호 행동이 강하지만 시설 밖으로 나가야 한다는 판단이나 전체 목적을 스스로 형성할 정보는 제공되지 않는다.</p><span class="profileTag">GUARDIAN</span><span class="profileTag">STABLE</span></div>
+
+<div class="profileCard"><div class="pTop"><div><h3>적랑</h3><div class="pSub">RED / ACTIVE TYPE</div></div><span class="pNo">SZ-02</span></div><div class="profileMeta"><div><b>연관 꽃</b></div><div><span>적색 계열 꽃</span></div><div><b>성향</b></div><div><span>활발함 · 장난기 · 경쟁심 · 호기심</span></div><div><b>관계 경향</b></div><div><span>새로운 환경이나 변화에 빠르게 반응하고 다른 개체와의 상호작용을 먼저 시작하는 편.</span></div><div><b>관찰 역할</b></div><div><span>활동량, 호기심, 경쟁 행동과 환경 변화에 대한 반응 관찰.</span></div></div><p class="profileDesc">조용한 시설 안에서도 움직임과 변화를 만들어내는 타입. 규칙을 모르는 것이 아니라 규칙을 알고도 어디까지 시험할 수 있는지 확인하려는 성향이 강하다. 장난과 경쟁은 공격성보다 사회적 반응을 확인하는 방식에 가깝다.</p><span class="profileTag">ACTIVE</span><span class="profileTag">CURIOUS</span></div>
+
+<div class="profileCard"><div class="pTop"><div><h3>옥연</h3><div class="pSub">MINT / ORDER TYPE</div></div><span class="pNo">SZ-03</span></div><div class="profileMeta"><div><b>연관 꽃</b></div><div><span>민트 계열 꽃</span></div><div><b>성향</b></div><div><span>원칙적 · 정돈됨 · 형식 중시 · 안정 지향</span></div><div><b>관계 경향</b></div><div><span>공동생활의 규칙과 순서를 중요하게 여기며 예측 가능한 환경을 선호한다.</span></div><div><b>관찰 역할</b></div><div><span>규칙 준수, 루틴 유지, 환경 변화에 대한 적응 과정 관찰.</span></div></div><p class="profileDesc">정적구역의 생활규칙을 가장 명확하게 받아들이는 개체. 불확실한 상황에서는 감정보다 절차를 먼저 찾는다. 그래서 다른 개체에게는 답답하게 보일 수 있지만, 시설 입장에서는 장기적인 생태 루틴을 유지하는 기준점이 된다.</p><span class="profileTag">ORDER</span><span class="profileTag">ROUTINE</span></div>
+
+<div class="profileCard"><div class="pTop"><div><h3>자령</h3><div class="pSub">PURPLE / OBSERVER TYPE</div></div><span class="pNo">SZ-04</span></div><div class="profileMeta"><div><b>연관 꽃</b></div><div><span>보라 계열 꽃</span></div><div><b>성향</b></div><div><span>관찰자 · 독립적 · 신중함 · 거리두기</span></div><div><b>관계 경향</b></div><div><span>직접 개입하기보다 다른 개체의 행동과 시설의 변화를 오래 지켜본다.</span></div><div><b>관찰 역할</b></div><div><span>행동 패턴, 장기 변화, 개체 간 상호작용의 미세한 차이 기록에 적합.</span></div></div><p class="profileDesc">말이나 행동을 많이 드러내기보다 먼저 보고 판단하는 타입. 같은 사건을 겪어도 즉각적인 반응보다 나중에 그 의미를 정리하는 경향이 있다. 시설이 제공하는 정보의 빈틈을 비교적 빨리 알아차릴 가능성이 높은 개체로 분류된다.</p><span class="profileTag">OBSERVER</span><span class="profileTag">INDEPENDENT</span></div>
+
+<div class="profileCard"><div class="pTop"><div><h3>도월</h3><div class="pSub">PINK / DISTANT GUARDIAN</div></div><span class="pNo">SZ-05</span></div><div class="profileMeta"><div><b>연관 꽃</b></div><div><span>분홍 계열 꽃</span></div><div><b>성별 기록</b></div><div><span>남성형</span></div><div><b>성향</b></div><div><span>거리감 있음 · 침착함 · 보호적 · 관찰 중심</span></div><div><b>관계 경향</b></div><div><span>직접 다가가기보다 멀리서 상태를 확인하고 필요할 때만 개입한다.</span></div></div><p class="profileDesc">보호자 역할을 수행하지만 해청처럼 전면에 서지는 않는다. 개체들의 행동을 한발 떨어져 바라보며 위험이 커질 때만 개입하는 방식이다. 정적구역의 관계망에서 ‘항상 곁에 있지는 않지만 보고 있는 존재’에 가깝다.</p><span class="profileTag">DISTANT</span><span class="profileTag">PROTECTIVE</span></div>
+
+<div class="profileCard"><div class="pTop"><div><h3>유록</h3><div class="pSub">GREEN / ECOLOGICAL TYPE</div></div><span class="pNo">SZ-06</span></div><div class="profileMeta"><div><b>연관 꽃</b></div><div><span>녹색 계열 꽃</span></div><div><b>성향</b></div><div><span>안정적 · 자연 친화적 · 느긋함</span></div><div><b>관계 경향</b></div><div><span>인간식 규칙보다 공간과 생태환경의 변화에 민감하게 반응한다.</span></div><div><b>관찰 역할</b></div><div><span>계절구역 적응, 식생 변화, 환경조건과 개체 상태의 연관성 관찰.</span></div></div><p class="profileDesc">시설을 ‘건물’보다 하나의 생태환경으로 받아들이는 경향이 강하다. 다른 개체와의 관계에서도 강한 주장보다 주변 환경을 안정시키는 쪽으로 움직인다. A~D 계절구역의 차이에 대한 반응을 비교할 때 중요한 기준점이다.</p><span class="profileTag">ECOLOGY</span><span class="profileTag">CALM</span></div>
+
+<div class="profileCard"><div class="pTop"><div><h3>운서</h3><div class="pSub">ORANGE / CARETAKER TYPE</div></div><span class="pNo">SZ-07</span></div><div class="profileMeta"><div><b>연관 꽃</b></div><div><span>주황 계열 꽃</span></div><div><b>성별 기록</b></div><div><span>남성형</span></div><div><b>성향</b></div><div><span>행동력 있음 · 돌봄 · 적극적 · 반응이 빠름</span></div><div><b>관계 경향</b></div><div><span>단야를 특히 신경 쓰며 필요한 일을 직접 해결하려는 경향이 있다.</span></div></div><p class="profileDesc">말로 위로하기보다 먼저 행동하는 돌봄형. 특히 단야의 상태를 세심하게 살피며, 문제가 생기면 자신이 직접 움직이는 쪽을 택한다. 행동성이 높아 환경 변화가 발생했을 때 다른 개체보다 먼저 반응할 가능성이 있다.</p><span class="profileTag">CARETAKER</span><span class="profileTag">ACTION</span></div>
+
+<div class="profileCard"><div class="pTop"><div><h3>단야</h3><div class="pSub">WHITE / YOUNGER TYPE</div></div><span class="pNo">SZ-08</span></div><div class="profileMeta"><div><b>연관 꽃</b></div><div><span>백색 계열 꽃</span></div><div><b>형태 기록</b></div><div><span>후드형 의복을 주로 유지하는 개체</span></div><div><b>성향</b></div><div><span>자존심 강함 · 쉽게 약한 모습을 보이지 않음 · 예민함</span></div><div><b>관계 경향</b></div><div><span>자신을 어린 개체로 취급하는 태도에 반발하지만 운서의 돌봄에는 영향을 받는다.</span></div></div><p class="profileDesc">시설 안에서 상대적으로 어린 위치에 있는 개체. 보호받는 상황을 싫어하면서도 완전히 거부하지는 못한다. 자신의 상태를 스스로 결정하고 싶어 하는 욕구가 강하지만, 시설의 행동 제한 때문에 그 욕구와 실제 선택권 사이에 차이가 남는다.</p><span class="profileTag">YOUNGER</span><span class="profileTag">PRIDE</span></div>
+
+<div class="profileCard"><div class="pTop"><div><h3>설흔</h3><div class="pSub">BLACK / RETRIEVER TYPE</div></div><span class="pNo">SZ-09</span></div><div class="profileMeta"><div><b>연관 꽃</b></div><div><span>흑색 계열 꽃</span></div><div><b>성향</b></div><div><span>강한 호기심 · 친화적 · 사람을 따라가는 성향</span></div><div><b>관계 경향</b></div><div><span>새로운 사람이나 변화에 비교적 쉽게 관심을 보이며 다른 개체에게 먼저 다가가는 편.</span></div><div><b>관찰 역할</b></div><div><span>외부 자극, 새로운 대상, 인간과의 첫 접촉에서 나타나는 사회적 반응 관찰.</span></div></div><p class="profileDesc">‘리트리버 같은’ 친화성을 가진 개체. 경계보다 호기심이 먼저 작동하는 편이라 새로운 대상이 나타나면 확인하려는 행동이 강하다. 다만 시설의 행동 제한 때문에 호기심이 곧 자유로운 접근권을 의미하지는 않는다.</p><span class="profileTag">SOCIAL</span><span class="profileTag">CURIOUS</span></div>
+
+<div class="profileCard"><div class="pTop"><div><h3>침운</h3><div class="pSub">YELLOW / REALIST TYPE</div></div><span class="pNo">SZ-10</span></div><div class="profileMeta"><div><b>연관 꽃</b></div><div><span>황색 계열 꽃</span></div><div><b>성향</b></div><div><span>현실적 · 지혜로움 · 비판적 · 판단이 빠름</span></div><div><b>관계 경향</b></div><div><span>감정적인 판단보다 실제 조건과 결과를 따져 다른 개체의 행동을 평가한다.</span></div><div><b>관찰 역할</b></div><div><span>집단 의사결정, 위험 인식, 규칙과 현실 사이의 충돌 관찰.</span></div></div><p class="profileDesc">10개체 가운데 상황을 가장 현실적으로 바라보는 축. 낙관적인 해석이나 감정적인 결론을 그대로 받아들이지 않고 실제로 가능한 선택지를 따진다. 시설이 제공하지 않는 정보가 있다는 사실을 완전히 알지는 못해도, 설명 사이의 빈틈을 문제로 인식할 가능성이 높다.</p><span class="profileTag">REALIST</span><span class="profileTag">ANALYTICAL</span></div>
+</div></div>
+<div class="restrictedPanel" id="r-zones"><div class="sectionGrid"><div class="sectionBox"><h3>전체 배치 · 동심원형</h3><p>정적구역의 인공 계절 생태계는 위에서 보면 동심원 구조다. 가장 안쪽 A(봄)에서 바깥쪽 D(겨울)까지 계절환경이 겹겹이 배치되어 서로 다른 생태조건을 제공한다.</p></div><div class="sectionBox"><h3>A구역 · 봄</h3><p>가장 중심부. 봄 환경을 재현하며 새싹·개화·초기 생장 변화가 주요 관찰 요소다.</p></div><div class="sectionBox"><h3>B구역 · 여름</h3><p>A를 둘러싼 두 번째 고리. 높은 광량과 밀도 높은 녹음, 수분 공급량 변화가 주요 관리 요소다.</p></div><div class="sectionBox"><h3>C구역 · 가을</h3><p>B 바깥의 세 번째 고리. 낙엽·색 변화·생장주기 변화·향 농도의 계절 차이를 관찰한다.</p></div><div class="sectionBox"><h3>D구역 · 겨울</h3><p>가장 바깥쪽 고리. 저온·저광량 계절환경을 재현하며 안정성·휴면에 가까운 변화·회복 상태를 장기 관찰한다.</p></div><div class="sectionBox"><h3>구역 관계</h3><p>A 봄 → B 여름 → C 가을 → D 겨울 순으로 외곽으로 확장된다. 각 구역은 단순 장식이 아니라 서로 다른 생태조건을 제공하는 실험·생활환경이다.</p></div></div></div>
+<div class="restrictedPanel" id="r-facility"><div class="sectionGrid"><div class="sectionBox"><h3>중앙생태관찰홀</h3><p>정적구역의 중앙 핵심 시설. A~D 생태구역의 상태를 관찰·관리하며 광량, 오염도, 수분도, 향 농도, 주변 생명력을 비교·기록한다. 관찰·관리 기능이 중심이며 회복 기능과는 분리된다.</p></div><div class="sectionBox"><h3>생태회복실</h3><p>연구실이 아니라 AI/생태 개체의 회복 전용 공간. 상태가 저하된 개체는 회복용 포드를 사용한다. 중앙생태관찰홀이 관찰·관리라면 생태회복실은 회복이라는 역할 구분이 명확하다.</p></div><div class="sectionBox"><h3>폐쇄 생활구역</h3><p>정적구역이 폐쇄적인 가장 직접적인 이유는 내부 개체가 외부 세계의 일반 생태와 접촉하지 않은 상태에서 관찰되어야 하기 때문이다. 창문과 일반 출입구를 최소화하는 것은 외부 환경이 내부 조건을 바꾸는 것을 막고, 동시에 시설의 위치·구조가 외부에 노출되는 것을 방지한다. 빛과 물은 자동 계통으로 공급되며 인간용 화장실 같은 일반 생활시설이 없는 것도 이 공간이 인간을 위한 주거시설이 아니라 식물적 생리와 통제된 생태환경을 유지하기 위한 시설이기 때문이다. 결과적으로 내부의 ‘폐쇄’는 단순한 보안장치가 아니라 연구조건·시설보안·개체관리라는 세 목적이 겹쳐 만들어진 구조다.</p></div><div class="sectionBox"><h3>환경관리 계통</h3><p>광량·수분·공기질·향 농도 등을 개별적으로 관리한다. 습도는 일반적인 변동 지표가 아니라 고정된 관리값으로 취급된다.</p></div></div></div>
+<div class="restrictedPanel" id="r-life"><div class="sectionGrid"><div class="sectionBox"><h3>식생활</h3><p>일반적인 인간의 식사와 다른 방식으로 생활한다. 물을 주요 공급원으로 사용하며 식물적 생리와 연관된 생활주기를 가진다.</p></div><div class="sectionBox"><h3>일상</h3><ul><li>자연광 공급에 따른 생활 리듬</li><li>계절환경에 따른 공간 이동·활동</li><li>개체별 꽃 상태 관찰</li><li>공용 관찰공간과 개인적 생활영역의 구분</li></ul></div><div class="sectionBox"><h3>외부 인식과 고립</h3><p>외부 세계를 직접 볼 수 있는 창구가 없고, 외부의 실제 상황·COL-X·시설의 전체 목적에 관한 정보도 제한된다. 이 고립은 ‘왜 여기 있는가’를 스스로 판단할 수 있는 정보가 처음부터 충분히 주어지지 않는 구조에서 발생한다. 외부와의 접촉이 제한되는 것은 단순히 위험해서가 아니라, 개체가 외부 인간사회와 자연환경을 경험하면 관찰 대상과 환경의 경계가 흐려질 수 있기 때문이다. 따라서 정적구역의 폐쇄성은 보안이면서 동시에 관찰조건이며, 그 결과 내부 개체에게는 자신이 세계의 일부가 아니라 분리된 실험환경에 놓여 있다는 감각이 남는다.</p></div><div class="sectionBox"><h3>생활환경 기록</h3><p>광량, 오염도, 수분도, 향 농도, 주변 생명력이 주요 기록값이며, 급격한 변화는 별도 상태 이벤트로 분류한다.</p></div></div></div>
+<div class="restrictedPanel" id="r-security"><div class="sectionGrid"><div class="sectionBox"><h3>보안 등급</h3><p>RESTRICTED. 정적구역의 위치·구조·개체 정보는 일반 국제 아카이브의 공개 데이터와 분리된다.</p></div><div class="sectionBox"><h3>접근 기록</h3><ul><li>단일 HTML 내부 제한층</li><li>별도 인증 필요</li><li>인증 후 세션 내 탭 이동 허용</li><li>페이지 새로고침 시 인증 초기화</li></ul></div><div class="sectionBox"><h3>명칭 구분</h3><p>‘SILENT ZONE / 정적구역’은 인간이 만든 극비 시설을 뜻한다. 세계관에서 별도로 발전시킬 수 있는 자연적·불가해한 침묵/정보·소리·신호 단절 현상과는 동일한 개념으로 취급하지 않는다.</p></div><div class="sectionBox"><h3>보안 메모</h3><p>정적구역의 존재 자체가 제한정보라는 원칙을 적용한다. 일반 검색은 이 기록층을 대상으로 하지 않는다. 위치를 숨기는 것만으로는 충분하지 않기 때문에 공개 아카이브에서는 시설의 이름·구조·목적을 함께 분리하고, 인증된 세션에서만 관련 기록층을 연다. 즉 정적구역의 보안은 ‘문을 잠근다’보다 ‘존재한다는 사실 자체가 누구에게 보이는가’를 통제하는 방식에 가깝다.</p></div></div></div>
+</div></div>
+</section></main></div><div class="taskbar archive-taskbar"><div class="task-start">▦ <span>COL-X</span></div><div class="task-app active">▣ COL-X ARCHIVE</div><div class="task-spacer"></div><div class="system-tray"><span class="tray-status">● ONLINE</span><span class="task-clock" id="archiveClock">--:--</span></div></div></div>
+<script>
+const archiveData={
+  colx:{title:"COL-X",meta:"SPECIES / CLASSIFICATION: UNKNOWN",text:"인간 사회가 아직 완전히 이해하지 못한 이상 생명체. 대표적으로 검은색과 흰색이 섞인 둥근 형태가 관측되지만 형태는 고정되어 있지 않으며, 인간·동물·식물 등 생물학적 형태를 닮은 모습으로도 존재할 수 있다. 충분히 성장한 개체는 해상에서 거대한 원형 구체처럼 관측되기도 한다. COL-X는 살아 있는 생명체를 흡수해 성장하며 인간만을 특별한 먹이로 삼는 존재는 아니다.",rows:[["기본 외형","흑백 계열의 둥근 형태가 대표적이나 고정형이 아님"],["형태 변이","인간형·동물형·식물형·기타 생물학적 형태 가능"],["흡수 대상","인간·동물·식물·곤충 등 살아 있는 생명체"],["성장 방식","생명체 흡수 → 개체 규모 증가"],["개체 간 현상","작은 COL-X가 큰 COL-X를 향해 이동해 흡수됨"],["집단 특성","경쟁·전투보다 큰 개체로 합쳐지는 경향"],["의사소통","인간식 언어·대화 없음 / 행동 패턴으로 분석"],["제거 난도","일반 개인이 쉽게 제거할 수 없음"],["기본 대응","발견 → 신고 → 위험도 평가 → 통제 → 전문 대응"],["대표 관측상","짙은 안개가 낀 해역에 떠 있는 거대 구체형 개체"]]},
+  anomaly:{title:"ANOMALIES",meta:"PHENOMENA / ENVIRONMENTAL & ATMOSPHERIC RECORD",text:"COL-X와 강한 상관관계를 보이는 안개와, 그와 별개로 분류되는 하늘·기상 이상현상을 함께 관리한다. 현재 원칙은 모든 현상을 COL-X 하나의 원인으로 묶지 않는 것이다. 특히 안개가 COL-X를 발생시키는지, COL-X가 안개를 유발하는지, 혹은 제3의 원인이 둘 모두에 작용하는지는 확정되지 않았다.",rows:[["안개","짙은 안개 지역에서 COL-X의 활동·이동이 활발해지는 경향 / 다만 이것만으로 안개가 원인이라고 결론내리지 않는다"],["인과관계","미확정 / 상관관계만 관측됨"],["고위험 조합","짙은 안개 + 강풍 / 시야와 통신·수색 조건이 동시에 나빠져 COL-X 자체의 위험과 별개의 현장 대응 난도가 상승"],["위험 영향","시야 감소·구조 난도 증가·해역 위험 증가·관측 효율 저하"],["해양 분류","짙은 안개 해역은 대표적 COL-X 위험지역"],["하늘 이상현상","COL-X·안개와 구분되는 별도 계열로 확장 가능"],["연구 원칙","확인된 연관성만 기록하고 독립 현상은 별도 분류"]]},
+  rating:{title:"COL-X RATING",meta:"INTERNATIONAL RISK ASSESSMENT",text:"COL-X의 위험도는 단순한 크기만으로 판단하지 않는다. 개체 규모와 성장상태, 활동성, 이동범위, 주변 생태계 영향, 인간 접근 가능성, 해양·육상 환경, 안개 동반 여부, 주변 COL-X의 존재 등 여러 요소를 함께 평가한다. 국가와 국제기관이 정보를 공유하고 대응 우선순위를 정할 때 사용하는 핵심 기준이다.",rows:[["규모","현재 크기와 성장 여지"],["활동성","움직임·흡수 활동·행동 변화"],["이동 범위","현 위치와 예상 이동권"],["생태 영향","주변 생물·환경에 미치는 영향"],["접근성","인간 거주지·교통망과의 거리"],["환경","해양/육상 및 기상 조건"],["안개 동반","짙은 안개·강풍 여부"],["주변 개체","다른 COL-X와의 합류·흡수 가능성"],["등급 명칭","정확한 단계·명칭은 아직 발전 중"]]},
+  icra:{title:"IRCA",meta:"ORGANIZATION / INTERNATIONAL RESPONSE & CLASSIFICATION AUTHORITY",text:"IRCA는 여러 국가가 COL-X와 각종 이상현상에 공동 대응하기 위해 만든 국제기관이다. 이 기관이 폐쇄적인 이유는 단순히 권력을 독점하기 위해서가 아니라, 하나의 관측자료가 잘못 퍼질 경우 여러 국가의 대피·수색·항로·연구 판단이 동시에 흔들릴 수 있기 때문이다. 특히 COL-X의 정확한 위치, 이동 가능성, 성장 상태처럼 즉시 행동을 유발하는 정보는 공개 범위를 넓힐수록 혼란과 오접근 위험도 커진다. 그래서 IRCA는 ‘모든 것을 숨긴다’가 아니라 ‘업무상 필요한 사람에게 필요한 범위만 공유한다’는 방식으로 운영된다. 국가기관·연구기관·관측시설이 각각 자료를 생산하고, IRCA는 그 자료가 서로 모순되는지 검증한 뒤 국제 기준으로 묶는다. 결과적으로 IRCA는 세계의 중앙 통치기관이라기보다 서로 다른 국가의 불완전한 정보를 연결해 하나의 공통 판단으로 만드는 조정층에 가깝다.",rows:[["정식 명칭","International Response & Classification Authority"],["약칭","IRCA"],["기관 성격","국제 이상현상 대응·분류·정보관리 기관"],["핵심 업무","이상현상 분류·COLX Rating·국가자료 검증·국제 대응 조정"],["연구 지원","연구기관 지원·관측자료 인증·공동연구 조정"],["위험 관리","위험지역 정보 관리·국제 비상대응 연결"],["정보 관리","국가별 보고서 수집 → 검증 → 국제 데이터베이스 등록"],["보안","자료별 접근권한·인증·비인가 접근 기록 관리"],["접근 등급","PUBLIC → RESTRICTED → RESEARCH → CONFIDENTIAL"],["PUBLIC","일반 시민이 열람 가능한 뉴스·안전수칙·기본 위험정보"],["RESTRICTED","인증된 기관과 지정 인원이 열람하는 제한자료"],["RESEARCH","검증된 연구자에게 제공되는 연구·관측·생태자료"],["CONFIDENTIAL","국제기관 고위권한자 및 특수 인가 대상 기밀자료"],["조직 구성","Classification / Research Coordination / Marine & Atmospheric / Emergency Response / Information Security / International Affairs / Archive & Certification"],["국가와의 관계","각 국가는 자체 대응체계를 유지하지만 국제적으로 공유되는 위험분류와 자료인증에는 IRCA 기준을 사용"],["보안 사건","과거 외국 IP 등을 이용해 제한자료에 접근하려 한 민간 시도가 기록되어 있으며 이후 인증체계가 강화됨"],["핵심 원칙","정보를 숨기는 것 자체보다 ‘누가 무엇을 알아야 하는가’를 구분하는 것이 보안의 핵심"]]},
+  orbis:{title:"ORBIS MARINE OBSERVATION FACILITY",meta:"FACILITY / INTERNATIONAL MARINE OBSERVATION",text:"Orbis Marine Observation Facility는 타르베시아 연합의 해양권과 IRCA 국제 관측망을 연결하는 대형 해양관측 시설이다. 이곳이 해안과 가까우면서도 일반 항만과 분리된 위치를 택하는 이유는 관측 자체의 연속성을 확보하면서 위험 해역에 불필요한 선박·인력을 보내지 않기 위해서다. Orbis의 핵심은 ‘발견 즉시 출동’이 아니라 ‘먼저 멀리서 충분히 본다’는 운영 원칙이다. 해류·기압·풍속·안개·생태자료와 COL-X 탐지자료를 같은 시간축으로 겹쳐 보면서, 단순한 우연인지 반복되는 패턴인지 확인한다. 위험도가 상승하면 Orbis가 직접 현장을 해결하는 것이 아니라 IRCA와 지역 대응기관에 검증된 상황정보를 넘긴다. 따라서 Orbis는 연구소와 행동기지 사이의 중간 데이터 노드이자, 바다에서 세계의 시야를 확보하는 시설이다.",rows:[["정식 명칭","Orbis Marine Observation Facility"],["한국어 명칭","오르비스 해양 관측 시설"],["연계","Tarbesia Union ↔ Orbis ↔ IRCA"],["시설 성격","국제 해양·기상·이상현상 관측 거점"],["주요 관측","해수·해류·기압·풍속·안개·해양생태·COL-X 활동"],["Marine Observation Deck","해상 상태와 수평선·안개·선박활동을 직접 관측"],["Atmospheric Monitoring Room","기압·풍속·기상변화·안개 발생 및 이동을 분석"],["COL-X Detection Room","센서와 관측망에서 들어오는 COL-X 의심 신호를 통합"],["Biological Analysis Lab","COL-X 활동 전후의 해양생태계 변화를 비교·분석"],["Data Archive","장기 관측자료와 사건별 센서 기록을 저장"],["Emergency Command Room","위험도 상승 시 주변 기관과 대응기지에 정보를 전달"],["Restricted Dock","일반 선박이 아닌 관측·비상대응용 선박이 사용하는 제한 부두"],["운영 방식","원격센서·관측부표·관측선·기상장비를 복합적으로 운용"],["COL-X 대응 위치","직접 제거보다 발견·추적·데이터 전달을 담당"],["데이터 흐름","SENSOR → ORBIS MONITORING → IRCA DATA NETWORK → COLX RATING → LOCAL RESPONSE"],["핵심 연구질문","안개가 COL-X 활동을 증가시키는가, COL-X가 환경에 영향을 주는가, 아니면 제3의 원인이 둘 모두에 작용하는가"],["안전원칙","COL-X 의심 해역에서는 인력의 직접 접근을 최소화하고 원격관측을 우선"],["세계관 역할","평범한 해양연구시설처럼 보이지만 국제 COL-X 대응망의 중요한 관측 노드"]]},
+  institutions:{title:"INSTITUTIONS / SCHOOLS",meta:"EDUCATION, RESEARCH & RESPONSE DIRECTORY",text:"INSTITUTIONS / SCHOOLS는 이 세계에서 지식이 어디서 만들어지고, 누가 그것을 배우며, 누가 실제 현장에서 사용하는지를 보여주는 기관 기록이다. 기관을 분리하는 이유도 명확하다. COL-X 연구는 장기 관찰과 자료 보존이 중요하고, 현장 대응은 몇 분 단위의 판단과 안전확보가 중요하기 때문에 같은 장소·같은 인력이 두 역할을 동시에 맡으면 기록의 독립성과 현장 안전이 모두 흔들릴 수 있다. 그래서 연구소는 원인을 이해하고 위험을 예측하는 쪽, 행동기지는 사람을 대피시키고 위험지역을 통제하는 쪽으로 역할을 나눈다. 대학은 그 사이에 필요한 전문인력을 길러내고, 국제학교는 그런 거대한 체계 바깥에서 실제 시민들이 살아가는 일상을 보여준다.",rows:[["COL-X RESEARCH INSTITUTE","COL-X의 생태·행동·개체자료를 전문적으로 연구하는 기관"],["연구기관 위치","세계 중심부가 아니라 동쪽 끝에 가까운 지역에 위치하는 방향"],["주요 연구","생태 연구·개체 분석·위험도 모델링·데이터 처리·관측결과 분석"],["연구 방식","COL-X와 대화하는 것이 아니라 관찰된 행동과 패턴으로 가설을 세움"],["ACTION BASE","현장 출동·위험지역 대응·구조·통제·실전 대응을 담당하는 별도 시설"],["기관 분리 원칙","RESEARCH INSTITUTE ≠ ACTION BASE"],["ORbis","해양·기상·안개·해역 COL-X를 관측하는 국제 시설"],["국가 연구기관","각국의 환경·생태·방재·공학 연구를 담당하며 일부 자료를 IRCA와 공유"],["ARVAIN INTERNATIONAL SCHOOL","국제학생들이 생활하며 학교생활·문화차이·친구관계·갈등·일상을 보여주는 공간"],["학교의 COL-X 교육","일반적인 안전수칙·안개경보·대피방법 정도를 교육하며 전문 기밀정보는 공개하지 않음 / 학생이 알아야 할 것은 ‘무엇인지’보다 ‘어떻게 피하고 신고하는지’에 가깝다"],["대학의 역할","환경과학·생태학·해양학·공학·국제정치 등 전문인력을 양성"],["교육과 연구의 연결","대학 연구실 → 국가 연구기관 → IRCA 공동연구로 이어지는 인력·자료 순환이 존재"],["세계관 역할","국제기구와 극비시설만 존재하는 세계가 아니라 평범한 학생과 연구자도 살아가는 세계라는 점을 보여줌"]]},
+  incident:{title:"INCIDENT LOG",meta:"HISTORICAL / ANOMALY / SECURITY RECORD",text:"INCIDENT LOG는 단순한 사건 목록이 아니라 ‘사건이 발생한 뒤 세계가 어떻게 달라졌는가’를 추적하는 기록실이다. 하나의 사건은 최초 신고, 현장 관측, 국가별 판단, IRCA 검증, 대응, 종료, 사후조사 순으로 쪼개 기록된다. 이 구조가 필요한 이유는 사건 직후의 정보가 가장 불완전하기 때문이다. 처음에는 COL-X인지 단순한 환경 이상인지조차 확정되지 않을 수 있고, 국가마다 서로 다른 보고가 들어올 수도 있다. 따라서 기록은 확정된 사실과 당시의 추정, 나중에 수정된 판단을 구분한다. 또한 같은 사건이라도 시민에게는 안전공지로, 연구자에게는 센서자료로, 국제기관에는 전체 대응경위로 남을 수 있다. ‘Black Fog Incident’는 과거에 사용한 임시명이며 최종 공식 명칭으로 확정하지 않는다.",rows:[["INC-BR-RE-001","제1차 국경 격화 사건 / 1st Border Escalation Incident"],["관련국","Braxen Republic × Rekar"],["사건 성격","국경지역의 정치·군사적 긴장이 급격하게 상승한 국제 사건"],["주요 단계","국경 이상징후 보고 → 양국 대응 → 국제사회 개입 → IRCA 정보검증 → 긴장완화 → 사후조사"],["사건 의의","이후 국제 긴장관계와 국경지역 이상정보 공유체계를 이해하는 핵심 역사 기록"],["INC-MAR-CX-002","해양에서 복수의 소형 COL-X가 관측된 뒤 개체 간 흡수가 연속적으로 발생한 사건 기록"],["INC-ATM-003","짙은 안개와 강풍이 동시에 발생하고 같은 시간대 COL-X 활동량 증가가 관측된 환경 이상 기록"],["INC-ATM-CX-004","대규모 안개·COL-X 관련 사건의 임시 기록명. ‘Black Fog Incident’는 최종 공식 명칭이 아님"],["INC-SEC-005","IRCA 제한자료에 외부 네트워크를 이용해 접근하려 한 민간 시도 및 그 후속 보안강화 기록"],["INC-ORB-006","Orbis에서 장기간 안개·풍속·생태계 변화·COL-X 활동이 함께 관측된 장기 모니터링 기록"],["공개 상태","PUBLIC / RESTRICTED / CONFIDENTIAL 등 사건별 접근등급 적용 / 같은 사건이라도 시민용 기록과 내부 조사기록의 정보량이 다를 수 있음"],["기록 원칙","확정된 관측사실·기관판단·연구가설을 서로 구분"],["사건 ID","INC-국가/분야-번호 형식으로 관리하는 방향"],["사후 기록","사건 종료 뒤에도 COL-X 활동·환경변화·정책변경이 있으면 관련 기록에 연결"]]},
+  personnel:{title:"INFORMATION ACCESS",meta:"ARCHIVE / DISCLOSURE LAYERS",text:"이 세계에서는 무엇을 아는가 자체가 중요한 세계관 요소다. 같은 사건도 일반 시민에게는 안전수칙으로, 연구자에게는 관측자료로, 국제기관에는 기밀보고서로 보일 수 있다. 정적구역과 같은 극비 시설은 존재 자체가 제한정보가 될 수 있다.",rows:[["PUBLIC","뉴스·공개자료·일반 COL-X 위험정보·대피수칙"],["RESTRICTED","인증된 기관과 지정 인원이 열람하는 제한자료"],["RESEARCH","검증된 연구자가 열람하는 연구·관측·생태 데이터"],["CONFIDENTIAL","국제기관·고위급 인가자·특수 인원이 접근하는 기밀자료"],["일반 시민","COL-X의 존재와 기본 안전수칙은 알 수 있지만 연구 메커니즘과 민감한 위치정보는 제한"],["연구자","개체 관찰자료·환경자료·생태자료에 접근하지만 모든 국가기밀을 볼 수 있는 것은 아님"],["국제기관","국가 간 공유자료와 대응자료에 접근"],["정적구역 관련 인원","극비 생태자료와 시설정보에 제한적으로 접근"],["핵심 분위기","평범한 일상과 거대한 비공개 관리체계 사이의 정보 격차 / 시민은 안전수칙을 알고 살아가지만 세계 전체의 원인과 연결고리까지 아는 것은 아니다"]]},
+  institute:{title:"COL-X RESEARCH INSTITUTE",meta:"INSTITUTION / SCIENTIFIC CENTER",text:"COL-X Research Institute는 COL-X를 직접 상대하는 기관이 아니라, 관측된 현상을 오래 축적해 ‘왜 이런 일이 반복되는가’를 분석하는 전문 연구기관이다. 동쪽 끝에 가까운 위치를 택한 것은 국제정치의 중심지에서 떨어져 독립적인 연구환경과 넓은 관측권을 확보하기 위한 설정이다. 이곳에서는 한 번의 사건보다 수개월·수년 단위의 자료가 중요하다. Orbis와 국가 연구기관에서 들어온 관측자료를 비교하고, 개체의 형태·성장·흡수·이동과 환경변화를 같은 시간축에 놓아 패턴을 찾는다. 직접 출동을 기본 임무로 하지 않는 이유도 여기에 있다. 현장 대응과 연구 판단이 서로를 압박하지 않도록 역할을 분리하고, 연구소의 결론은 IRCA가 국제 위험평가에 사용할 수 있는 형태로 정리된다.",rows:[["핵심 업무","생태 연구·COL-X 분석·데이터 처리·위험도 연구"],["연구 대상","COL-X의 형태·성장·흡수·개체 간 관계·환경 상관관계"],["관측 분석","Orbis 및 각국 관측기관의 자료 해석"],["위험 연구","COLX Rating의 평가요소와 실제 사건자료 비교"],["현장 업무","행동기지에서 담당 / 연구소는 직접 출동을 기본 임무로 하지 않음"],["입지","동쪽 끝에 가까운 지역"],["연구 방식","언어적 의사소통이 아닌 행동·패턴·환경자료 분석"],["국제 연결","IRCA에 검증된 연구결과와 위험분석을 제출"],["정보등급","일반 연구자료와 제한·기밀 연구자료가 분리됨"]]},
+  school:{title:"ARVAIN INTERNATIONAL SCHOOL",meta:"INSTITUTION / INTERNATIONAL SCHOOL",text:"아르베인 국제학교는 세계관의 평범한 인간 생활을 보여주는 국제학교다. 여러 국가 출신 학생들이 같은 교실과 기숙·생활권을 공유하기 때문에 국가 간 차이가 거대한 외교문제가 아니라 말투, 교육방식, 생활습관, 친구관계 같은 작은 일상으로 드러난다. 학교가 사건의 중심에서 벗어나 있는 이유도 중요하다. COL-X가 존재한다고 해서 모든 사람이 연구자나 대응요원이 되는 것은 아니며, 대부분의 사람은 학교에 가고 수업을 듣고 친구와 다투고 화해하며 살아간다. 공개된 안전교육은 받지만 연구 메커니즘이나 IRCA 기밀을 알지는 못한다. 그래서 아르베인은 거대한 비밀체계와 평범한 사회가 동시에 존재한다는 세계관의 대비점이 된다.",rows:[["영문명","Arvain International School"],["기관 성격","국제학교"],["학생 구성","여러 국가·문화권에서 온 학생들이 함께 생활"],["교육","일반 교과 + 국제사회·환경·안전 관련 선택교육"],["COL-X 교육","안개경보·대피경로·위험지역 접근금지 등 공개 안전교육 중심"],["기밀정보","COL-X의 전문 연구자료나 IRCA 기밀문서는 학생에게 공개되지 않음"],["학교생활","수업·동아리·친구관계·문화차이·갈등·행사 등"],["세계관 역할","거대 기관과 이상현상 뒤에 존재하는 평범한 인간사회를 보여주는 공간"]]}
+};
+const nationData={
+ tarbesia:{name:"타르베시아 연합",en:"TARBESIA UNION",code:"TU-01",theme:"MARITIME OBSERVATION / INTERNATIONAL COOPERATION",capital:"미확정 · 해양권 중심의 연합 수도권",government:"연합국가 / 권역 자치와 중앙 조정의 병존",language:"타르베시아 공용어",currency:"타르베시아 연합 통화(명칭 미확정)",motto:"관측하고, 기록하고, 대비한다.",symbol:"해양·관측·연합",summary:"타르베시아 연합은 해양과 연안 환경을 국가 기반시설의 일부로 취급하는 연합국가다. COL-X 발생 이후 해양관측망이 국가안보와 국제과학협력의 중간 영역으로 성장했으며, IRCA와 Orbis Marine Observation Facility의 운영에서 중요한 위치를 차지한다.",facts:[["국가 형태","연합국가"],["핵심 분야","해양학·기상·환경관측"],["대표 기록","Orbis Marine Observation Facility"],["국제기구","IRCA 협력국"],["주요 위험","해양 COL-X"],["정보문화","관측자료의 공공성 중시"]],tags:["해양국가","연합체","관측국","IRCA","Orbis"],sections:[
+ ["1. 개요",["타르베시아는 바다와 연안권의 관측·관리 능력을 국가 역량의 핵심으로 발전시킨 국가다. 일반적인 해양연구와 COL-X 대응이 완전히 분리되지 않고 하나의 관측 인프라 안에서 연결된다.","연합 내부의 권역별 자율성이 존재하지만 국제 대응이 필요한 사안에서는 중앙 조정기관이 자료와 비상대응을 통합한다."]],
+ ["2. 역사",["COL-X 이전에는 해양·기상 관측을 중심으로 한 연구항과 연안 관측망이 발달했다.","COL-X 확산 이후 해양관측 자료의 가치가 급격히 상승했고, 기존 연구시설을 국제 공동관측 시설로 전환하는 정책이 확대되었다.","Orbis의 설립은 이러한 변화의 상징적인 사건으로 기록된다."]],
+ ["3. 지리",["긴 해안선과 다수의 연구항·관측항을 가진 해양권 중심 국가로 설정된다. 해안과 외해 사이의 환경 차이가 커 장기 관측에 유리한 지역이 많다.","특히 해양 안개, 풍향 변화, 수온 및 생태계 변동은 COL-X 관측과 동시에 기록되는 주요 환경자료다."]],
+ ["4. 행정구역",["연합정부와 권역정부가 병존한다. 각 권역은 교육·환경관리·지역 기반시설에서 일정한 자율성을 가지며, 국제 관측망과 관련된 기준은 중앙에서 통합한다.","세부 행정구역 명칭은 확장 설정으로 열어두며, 해안권·연구항권·내륙권의 기능적 구분이 강하다."]],
+ ["5. 정치와 행정문화",["타르베시아의 행정문화는 단기적인 성과보다 장기 관측과 축적된 기록의 연속성을 중요하게 여기는 편이다.","관측자료를 공개해야 한다는 입장과 위험정보를 일정 기간 제한해야 한다는 입장이 반복적으로 충돌한다."]],
+ ["6. 경제",["해양운송, 연구서비스, 환경관측, 항만 기반 산업이 주요 축이다. COL-X 이후 안전관측 장비와 원격관측 기술의 수요가 크게 증가했다.","Orbis와 같은 국제시설은 연구시설이면서 동시에 주변 지역의 고급 기술·의료·통신 인프라를 끌어들이는 거점으로 기능한다."]],
+ ["7. 교육과 학위",["대표적인 전문분야는 해양학, 기상학, 환경과학, 생태학, 원격탐사, 해양공학이다.","학사(B.Sc.) → 석사(M.Sc.) → 박사(Ph.D.)의 일반적인 학위 체계 외에 관측관·현장안전관을 위한 기관 인증 과정이 존재한다.","심화과목에는 해양생태학, 해양기상, 원격탐사, 환경통계, 해양위험분석, 장기생태자료 관리 등이 포함된다."]],
+ ["8. 과학과 기술",["해양 원격센서, 장거리 통신, 기상 레이더, 수중 관측장비, 생태자료 장기저장 기술이 강점으로 꼽힌다.","COL-X를 직접 채집하는 것보다 안전거리에서 장기간 관찰하는 기술이 국가 연구철학의 핵심이다."]],
+ ["9. COL-X 대응",["거대 해양 COL-X가 확인되는 해역은 원격관측 우선 원칙이 적용된다. 선박 접근은 최소화하며, 관측선·부표·항공·원격센서의 자료를 통합한다.","위험해역의 환경자료는 IRCA와 공유되지만 민간 공개 범위는 별도 심사를 거친다."]],
+ ["10. 국제관계",["IRCA를 통한 국제 협력에 적극적으로 참여하며 해양 관측자료를 국제 공동대응의 핵심 자산으로 취급한다.","다만 해양안보와 민간 항로 안전에 관련된 일부 자료는 공개까지 시간차를 두는 관행이 있다."]],
+ ["11. 사회와 문화",["해안 도시에서는 기상·조류·항로 상태를 확인하는 일이 일상적인 생활문화로 자리잡았다.","COL-X 이후 '안개가 짙은 날의 이동 자제' 같은 안전수칙이 학교 교육과 지역 생활규범에 자연스럽게 포함되었다."]],
+ ["12. 주요 기관",["Orbis Marine Observation Facility — 타르베시아 해역의 거대 해양 COL-X 관측시설.","국가 해양관측망 — 연구·기상·안전자료를 통합하는 국가 기반망."]],
+ ["13. 주요 업적",["국제 해양관측망 구축", "거대 해양 COL-X 장기자료 축적", "해양환경 자료와 위험관측 자료의 통합 기록체계"]],
+ ["14. 연표",["COL-X 이전 — 해양·기상 연구항 확대","초기 확산기 — 연안 위험관측망 긴급 전환","국제협력기 — IRCA 공동관측 확대","Orbis 설립기 — 국제 해양관측 거점 구축","현재 — 해양 COL-X 장기 관측자료 축적"]]
+ ]},
+ rekar:{name:"레카르",en:"REKAR",code:"RK-02",theme:"SECURITY / INFORMATION CONTROL",capital:"미확정 · 중앙행정권 중심 도시",government:"중앙집권적 안전행정 체계",language:"레카르 공용어",currency:"레카르 통화(명칭 미확정)",motto:"질서는 대비에서 시작된다.",symbol:"국경·정보·안전",summary:"레카르는 국경관리와 위험정보 통제를 중시하는 국가다. COL-X 시대 이후 위험지역의 출입관리와 정보등급 체계가 빠르게 발달했으며, 브락센과의 국경 사건은 현대 레카르의 외교·안보정책을 이해하는 핵심 기록으로 남아 있다.",facts:[["국가 형태","중앙집권적 공화체"],["핵심 분야","안보·정보·재난관리"],["대표 정책","위험정보 등급화"],["주요 사건","제1차 국경 격화 사건"],["대응 방식","통제·대피·현장대응"],["외교 성향","신중한 정보 공유"]],tags:["국경","정보통제","안전행정","위험지도"],sections:[
+ ["1. 개요",["레카르의 국가 운영은 위험을 사전에 분류하고 접근을 통제하는 방식에 가깝다. COL-X와 관련된 민감정보는 공개자료와 기관자료를 엄격하게 구분한다."]],
+ ["2. 역사",["COL-X 확산 초기부터 국경권역의 위험지도와 통행관리 체계가 확대되었다.","브락센과의 제1차 국경 격화 사건은 두 국가의 대응범위와 정보공유 원칙을 둘러싼 충돌로 기록된다."]],
+ ["3. 지리와 행정",["국경권·도시권·위험관리권의 기능적 구분이 강하다. 중앙정부가 위험지역 지정과 비상대응 기준을 통합한다."]],
+ ["4. 정치와 행정문화",["위험정보는 공개보다 정확성과 통제가능성을 우선한다는 행정철학이 강하다. 민간 공개자료는 이해하기 쉽게 단순화되는 반면 기관자료는 세부 수치와 위치정보를 포함한다."]],
+ ["5. 경제",["보안·통신·재난안전 장비 산업과 도시 기반시설 관리가 중요한 분야다. 위험지도와 감시체계가 민간 건축·교통계획에도 영향을 준다."]],
+ ["6. 교육과 학위",["재난안전, 환경감시, 생태위험학, 정보보안, 도시방재 분야가 발달했다.","심화과목에는 위험지도 작성, 환경감시, 대피계획, 현장안전, 비상통신이 포함된다."]],
+ ["7. COL-X 대응",["도시와 국경의 위험구역을 세분화하고 단계별 접근권한을 부여한다. 대규모 이동이 필요한 경우 중앙지휘체계가 지역기관을 통합한다.","민간에는 행동지침을 중심으로 공개하고, 개체 위치와 이동예측 등은 제한자료로 분류한다."]],
+ ["8. 국제관계",["국제협력이 필요하다는 점은 인정하지만 민감정보의 외부 제공에는 신중하다. 특히 국경과 관련된 COL-X 자료는 양자 협상 대상이 되기 쉽다."]],
+ ["9. 사회와 문화",["재난문자와 대피훈련이 일상적인 공공서비스로 자리잡았으며, 위험표지와 출입등급에 익숙한 사회문화가 형성되었다."]],
+ ["10. 주요 업적",["국경 위험지도 체계", "현장 대피표준", "위험정보 접근등급 체계"]],
+ ["11. 연표",["초기 확산기 — 국경 감시 강화","위험등급기 — 국가 위험지도 통합","제1차 국경 격화 사건 — 국제관계 재조정","현재 — 제한적 국제정보 공유"]]
+ ]},
+ braxen:{name:"브락센 공화국",en:"BRAXEN REPUBLIC",code:"BR-03",theme:"TERRITORIAL DEFENSE / DISASTER RESPONSE",capital:"미확정 · 내륙 행정·방위 중심 도시",government:"공화국 / 중앙정부와 지역행정의 연계",language:"브락센 공용어",currency:"브락센 통화(명칭 미확정)",motto:"영토를 지키고, 사람을 대피시킨다.",symbol:"방위·재난·영토",summary:"브락센 공화국은 영토 방위와 재난대응의 결합이 강한 국가다. COL-X 확산 이후 대규모 위험지역 통제와 민간대피 체계를 발전시켰으며, 레카르와의 제1차 국경 격화 사건이 현대 국가체계의 중요한 분기점이 되었다.",facts:[["국가 형태","공화국"],["핵심 분야","방위·재난관리"],["주요 체계","대규모 대피훈련"],["주요 사건","제1차 국경 격화 사건"],["연구분야","방위공학·생물안전"],["대응 철학","영토 통제와 민간 보호"]],tags:["공화국","방위","재난관리","국경"],sections:[
+ ["1. 개요",["브락센의 COL-X 대응은 개체를 단순한 생물학적 위험이 아니라 영토와 사회기반시설을 동시에 위협하는 재난으로 취급하는 경향이 강하다."]],
+ ["2. 역사",["초기 COL-X 확산기에 군·재난기관의 협업체계가 강화되었다.","레카르와의 국경 사건 이후 국경지역의 대응권한과 국제 연락체계가 재정비되었다."]],
+ ["3. 지리·행정",["내륙 행정권과 국경권의 기능적 구분이 강하며, 위험지역은 평시 행정과 별도의 비상지휘체계로 전환될 수 있다."]],
+ ["4. 정치",["영토와 기반시설의 연속성을 중요하게 보는 행정문화가 형성되어 있다. COL-X 대응 예산은 방위와 재난안전 양쪽에서 배정되는 경우가 많다."]],
+ ["5. 경제",["방위산업, 재난장비, 도시 인프라, 안전통신 분야가 주요 산업군이다. 대규모 위험대응 기술이 민간 재난관리 시장에도 확산되었다."]],
+ ["6. 교육과 학위",["방위공학, 재난관리, 생물안전, 환경위험분석 등이 주요 전공이다. 실습 중심의 현장대응 교육이 강하며 기관별 전문자격 과정이 발달했다."]],
+ ["7. COL-X 대응",["위험지역을 통제하고 주민을 단계적으로 대피시키는 체계가 핵심이다. 대규모 이동이 예상될 경우 교통·의료·통신 기관을 동시에 비상체제로 전환한다."]],
+ ["8. 국제관계",["레카르와의 관계는 제1차 국경 격화 사건의 영향을 크게 받는다. 국제협력은 유지하지만 영토와 방위 관련 사안에서는 독자적인 판단을 중시한다."]],
+ ["9. 사회·문화",["대피훈련과 비상방송에 대한 사회적 익숙함이 높다. 학교에서도 재난대응과 기본적인 위험지도 읽기 교육이 이루어지는 것으로 설정된다."]],
+ ["10. 주요 업적",["대규모 위험지역 통제 프로토콜", "민간대피 프로토콜", "방위·재난대응 연계체계"]],
+ ["11. 연표",["초기 확산기 — 방위·재난기관 협업","통합대응기 — 전국 대피표준 도입","제1차 국경 격화 사건 — 국경대응체계 재편","현재 — 국제 비상대응 협력 유지"]]
+ ]},
+ markedin:{name:"마르케딘 연맹",en:"MARKEDIN LEAGUE",code:"ML-04",theme:"ACADEMIC NETWORK / PRACTICAL COOPERATION",capital:"미확정 · 연맹 공동행정권",government:"연맹국가 / 권역 자치와 공동기관",language:"마르케딘 공용어 및 권역 언어",currency:"연맹 통화(명칭 미확정)",motto:"지식은 경계를 넘어 축적된다.",symbol:"대학·자료·연맹",summary:"마르케딘 연맹은 여러 권역이 공동기관으로 연결된 연맹국가다. 대학과 연구기관의 자율성이 비교적 높고 공동학위·연구교류가 발달해 있으며, COL-X 대응에서도 자료의 표준화와 장기 비교연구를 중요하게 여긴다.",facts:[["국가 형태","연맹국가"],["핵심 분야","교육·연구·데이터"],["대표 제도","공동학위·연구학기"],["COL-X 역할","자료 표준화"],["행정 특징","권역 자치"],["사회 특징","학술 교류 활발"]],tags:["연맹","교육","공동학위","연구망"],sections:[
+ ["1. 개요",["마르케딘은 연구기관과 대학의 네트워크 자체가 국가 인프라로 취급되는 국가다. 중앙기관은 모든 연구를 직접 통제하기보다 공통 표준과 자료 교환규칙을 조정한다."]],
+ ["2. 역사",["기존 대학 간 교류망과 권역별 연구기관이 연맹의 기반을 형성했다. COL-X 이후 이 네트워크가 국제 환경자료망으로 확장되었다."]],
+ ["3. 행정",["권역정부의 자율성이 높으며 교육·문화·지역연구에서 독립성이 강하다. 국가 단위 환경자료와 비상대응 표준은 공동기관이 관리한다."]],
+ ["4. 교육",["학사·석사·박사 과정과 복수전공, 공동학위, 국제 연구학기가 발달했다. 환경정책, 생태정보학, 과학사, 통계분석이 주요 분야다."]],
+ ["5. 연구",["대학 간 공동연구망, 장기 환경자료 보존소, 국제 데이터 표준화 프로젝트가 핵심이다. 연구자의 기관 이동이 비교적 자유로운 편이라는 확장 설정을 둔다."]],
+ ["6. COL-X 대응",["현장대응 장비 자체보다 관측자료의 비교·분석·표준화에서 강점을 가진다. 서로 다른 국가의 자료 형식을 통합해 국제기관이 활용할 수 있는 형태로 만드는 역할을 맡는다."]],
+ ["7. 경제",["교육서비스, 연구개발, 데이터 산업, 정밀환경측정 분야가 중요하다. 대학도시를 중심으로 연구기관과 민간기업이 밀집한다."]],
+ ["8. 국제관계",["학술교류를 통해 국가 간 긴장을 완화하는 비공식 통로가 발달했다. 정치적 협상보다 공동연구 프로젝트가 먼저 시작되는 경우가 많다."]],
+ ["9. 사회·문화",["대학도시 문화와 연구자 이동이 활발하다. 시민들이 과학자료와 공공보고서를 읽는 문화가 비교적 강하다는 설정을 추가한다."]],
+ ["10. 주요 업적",["국가 간 환경자료 표준화 프로젝트", "대학 공동연구망", "국제 공동학위 기반 연구인력 양성"]],
+ ["11. 연표",["연맹 형성 — 권역 대학망 통합","공동학위기 — 대학 간 학점·연구 교환 확대","COL-X 이후 — 국제 환경자료망으로 확장","현재 — 국제 연구협력 허브"]]
+ ]},
+ silverat:{name:"실베라트 공화국",en:"SILVERAT REPUBLIC",code:"SR-05",theme:"ECOLOGY / ENVIRONMENTAL RESTORATION / RESTRICTED ZONE",capital:"미확정 · 환경행정 중심 수도권",government:"공화국 / 환경행정과 지방 생태관리",language:"실베라트 공용어",currency:"실베라트 통화(명칭 미확정)",motto:"회복은 관찰에서 시작된다.",symbol:"생태·복원·정적구역",summary:"실베라트 공화국은 생태학·식물학·환경복원 분야가 발달한 국가다. 공개적인 환경연구 체계와 별개로 정적구역이라는 특수 제한구역 기록이 존재하며, 이 때문에 환경과학과 국가보안의 경계가 독특하게 형성되어 있다.",facts:[["국가 형태","공화국"],["핵심 분야","생태·환경복원"],["대표 연구","장기 생태관측"],["특수 기록","정적구역"],["교육","환경·생태과학"],["COL-X 역할","생태계 영향 관측"]],tags:["생태복원","환경과학","식물학","정적구역"],sections:[
+ ["1. 개요",["실베라트는 자연환경을 장기간 관찰하고 훼손된 생태계를 회복시키는 기술을 국가적 연구자산으로 취급한다.","국가의 공개 연구체계와 별도의 제한기록 체계가 동시에 존재한다는 점이 특징이다."]],
+ ["2. 역사",["COL-X 이전부터 생태복원과 식물학 연구가 축적되었으며, COL-X 이후 환경변화 관측의 중요성이 급격히 커졌다.","특수 환경관리구역이 별도의 보안체계로 관리되기 시작하면서 정적구역 관련 기록은 공개 국가문서와 분리되었다."]],
+ ["3. 지리·환경",["산림·습지·도시녹지 등 다양한 생태환경을 장기적으로 관리한다. 계절 변화와 생태계 회복 속도를 비교하는 관측망이 발달했다."]],
+ ["4. 정치와 행정",["환경행정의 전문성이 높은 편이며, 장기 환경자료를 정책의 근거로 사용하는 문화가 발달했다.","환경자료의 공개성과 특수 연구시설의 보안성 사이에서 지속적인 정책 논쟁이 발생한다."]],
+ ["5. 교육과 학위",["생태학, 식물학, 환경과학, 환경공학, 복원생태학이 핵심 전공이다. 학사·석사·박사 과정과 현장 생태조사 자격과정이 존재한다.","심화과목에는 식물생리, 생태계 복원, 환경통계, 생물다양성, 장기생태관측이 포함된다."]],
+ ["6. 연구기관",["생태복원 연구시설, 장기생태관측소, 환경변화 분석센터가 국가 연구망을 구성한다. 특수 제한구역은 일반 연구기관 목록과 분리된다."]],
+ ["7. COL-X 대응",["직접적인 공격·제거 기술보다 COL-X가 주변 생태계에 미치는 변화의 장기 관찰과 복원기술 개발을 중시한다.","생태계 회복력과 COL-X 활동의 상관관계를 추적하는 연구가 국가의 중요한 연구축으로 자리잡았다."]],
+ ["8. 정적구역",["정적구역은 실베라트의 일반 국가문서보다 높은 접근등급으로 분류된다. 내부에는 식물 유래의 비인간 지능 개체 10명이 독립된 생태환경에서 생활한다.","공개 문서에서는 시설의 상세 구조와 개체 정보가 제거되며, 별도 제한기록층에서만 열람할 수 있다."]],
+ ["9. 사회·문화",["도시의 녹지와 복원생태공원이 교육·휴식 공간으로 활용된다. 식물과 생태계를 생활권의 일부로 보는 문화가 강하다는 확장 설정을 둔다."]],
+ ["10. 주요 업적",["생태복원 기술", "장기 생태관측망", "특수 환경관리 체계"]],
+ ["11. 연표",["생태학 발전기 — 국가 생태관측망 형성","COL-X 이후 — 환경변화 관측 확대","특수관리기 — 제한 환경구역 분리","현재 — 공개 생태연구와 제한기록의 병존"]]
+ ]},
+ noserium:{name:"노세리움",en:"NOSERIUM",code:"NS-06",theme:"ENVIRONMENTAL RESOURCES / LONG-TERM SURVEY",capital:"미확정 · 내륙 환경행정 중심 도시",government:"중앙행정 국가 / 자원·환경 부처 중심",language:"노세리움 공용어",currency:"노세리움 통화(명칭 미확정)",motto:"기록된 변화는 미래를 지킨다.",symbol:"산림·토양·수계",summary:"노세리움은 산림·토양·수계 등 자연환경의 장기조사 기반이 강한 국가다. 외부 개입에는 경계적이지만 자국 환경자료의 국제적 가치를 인정하며 제한적인 공동연구에 참여한다.",facts:[["국가 형태","중앙행정 국가"],["핵심 분야","자연환경 조사"],["대표 분야","산림·토양·수문"],["대응 철학","장기 관측"],["외교","제한적 협력"],["연구자료","환경 장기자료"]],tags:["산림","토양","수문","환경조사"],sections:[
+ ["1. 개요",["노세리움은 자연환경 자체를 하나의 장기 기록으로 바라보는 국가다. 단기적인 위험도보다 수십 년 단위의 변화 추세를 중요하게 평가한다."]],
+ ["2. 역사",["기존 산림·토양·수계 조사망이 COL-X 이후 위험관측망으로 확장되었다. 환경자료의 축적이 국가 행정의 중요한 기반이 되었다."]],
+ ["3. 지리",["산림, 하천, 토양권 등 자연환경의 비중이 높은 지역이 많으며, 지역별 장기 조사소가 촘촘하게 분포한다."]],
+ ["4. 정치와 행정",["환경·자원 관련 부처가 강한 전문성을 가지고 있으며, 장기자료를 정책에 반영하는 행정문화가 발달했다."]],
+ ["5. 교육과 학위",["환경공학, 산림과학, 토양학, 수문학, 자원환경학이 주요 전공이다. 환경통계와 장기자료 분석이 필수적인 심화교육으로 자리잡았다."]],
+ ["6. COL-X 대응",["공격적 대응보다 자연환경 변화 감시를 우선한다. 토양·수계·산림 자료를 이용해 COL-X 활동 이후 생태계 변화와 위험지역을 추정한다."]],
+ ["7. 국제관계",["외부 개입을 경계하지만 환경자료의 공동연구 필요성은 인정한다. 따라서 공개 가능한 환경자료와 국가 내부자료를 구분하여 제한적으로 공유한다."]],
+ ["8. 경제",["산림자원, 환경관리, 수자원, 정밀 환경측정과 관련된 산업이 발달했다. 장기조사 기술은 민간 토지관리와 농업에도 활용된다."]],
+ ["9. 사회·문화",["계절과 수자원 상태를 생활정보로 받아들이는 문화가 강하다. 자연환경 조사기관의 관측보고서가 지역 행정과 생활계획에 자주 활용된다."]],
+ ["10. 주요 업적",["장기 환경변화 데이터베이스", "자연환경 조사망의 위험관측망 전환", "산림·토양·수계 통합 관측"]],
+ ["11. 연표",["자연조사기 — 전국 장기 환경조사망 구축","COL-X 이후 — 위험관측망으로 전환","국제자료기 — 제한적 환경자료 공동연구","현재 — 독립적 환경관측체계 유지"]]
+ ]},
+ corsedia:{name:"코르세디아",en:"CORSEDIA",code:"CS-07",theme:"TRANSPORT / COMMUNICATION / BALANCED DIPLOMACY",capital:"미확정 · 국제교통권 중심 도시",government:"중앙정부 / 광역 교통·통신 행정",language:"코르세디아 공용어",currency:"코르세디아 통화(명칭 미확정)",motto:"연결은 위기에서 가장 강하다.",symbol:"통신·교통·외교",summary:"코르세디아는 국제 이동과 통신 기반시설이 발달한 국가다. 여러 국가와의 관계에서 독자적인 균형외교를 유지하며, COL-X 시대에는 비상통신과 국제 이동관리 분야에서 역할을 확대했다.",facts:[["국가 형태","중앙정부 국가"],["핵심 분야","통신·교통"],["대표 역할","비상연락망"],["외교","균형외교"],["COL-X 대응","이동관리"],["기반시설","국제통신망"]],tags:["통신","교통","외교","비상연락"],sections:[
+ ["1. 개요",["코르세디아의 국가적 강점은 여러 기관과 국가를 빠르게 연결하는 기반시설이다. COL-X 대응에서 정보 자체보다 정보가 제때 전달되는가를 중요한 국가역량으로 본다."]],
+ ["2. 역사",["국제교통과 통신망의 성장으로 주변 국가와의 연결성이 높아졌다. COL-X 이후 기존 통신망을 비상연락망으로 전환하는 작업이 빠르게 진행되었다."]],
+ ["3. 지리·교통",["국제 이동이 집중되는 교통권과 통신거점이 발달했다. 위험지역이 발생하면 이동경로를 우회시키고 안전한 통신망으로 정보를 전달하는 역할을 수행한다."]],
+ ["4. 정치와 외교",["특정 국가에 장기간 종속되지 않는 균형외교를 지향한다. 국가 간 갈등이 있는 상황에서도 연락망과 실무협력 채널을 유지하려는 경향이 강하다."]],
+ ["5. 교육과 학위",["통신공학, 교통환경, 국제행정, 재난통신 분야가 발달했다. 심화과목에는 비상통신, 교통위험관리, 국제행정, 네트워크 복원공학이 포함된다."]],
+ ["6. COL-X 대응",["위험지역 이동관리와 기관 간 신속한 정보전달이 핵심이다. 대피 경로 변경, 국경 통과정보, 의료·구호기관 연락을 하나의 비상망으로 묶는다."]],
+ ["7. 경제",["통신, 교통, 항공·해상 물류, 네트워크 장비, 국제서비스 산업이 중요한 축이다. 비상통신 기술은 민간 통신망의 복원력 향상에도 사용된다."]],
+ ["8. 사회·문화",["다국적 교류가 활발하고 여러 언어와 문화에 대한 실용적인 적응력이 높은 사회라는 확장 설정을 둔다."]],
+ ["9. 국제관계",["여러 국가와 동시에 연락을 유지하는 능력 때문에 국제 비상상황에서 중간 연락창구로 활용되는 경우가 많다."]],
+ ["10. 주요 업적",["국제 비상연락망", "이동관리 표준", "기관 간 비상통신 체계"]],
+ ["11. 연표",["교통망 성장기 — 국제 이동 기반 확대","통신망 통합기 — 국가 간 연결망 강화","COL-X 이후 — 비상통신 체계 전환","현재 — 균형외교와 국제연락 기능 유지"]]
+ ]}
+};let restrictedUnlocked=false;
+function setNav(k){document.querySelectorAll('.nav').forEach(n=>n.classList.toggle('active',n.dataset.nav===k))}
+function hidePages(){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'))}
+function home(){hidePages();document.getElementById('homePage').classList.add('active');document.getElementById('crumb').textContent='ARCHIVE / OVERVIEW';setNav('home')}
+function showDetail(k){const d=archiveData[k];if(!d)return;hidePages();document.getElementById('detailPage').classList.add('active');document.getElementById('crumb').textContent='ARCHIVE / '+d.title;document.getElementById('detailTitle').textContent=d.title;document.getElementById('detailMeta').textContent=d.meta;document.getElementById('detailText').textContent=d.text;document.getElementById('rows').innerHTML=d.rows.map(r=>`<div class="row"><b>${r[0]}</b><span>${r[1]}</span></div>`).join('');setNav(k);scrollTop()}
+function backFromDetail(){home()}
+function flagSVG(k){
+ const F={
+  tarbesia:`<svg viewBox="0 0 300 180" xmlns="http://www.w3.org/2000/svg"><rect width="300" height="180" fill="#123a48"/><rect y="122" width="300" height="58" fill="#0b222b"/><path d="M0 0h300v55H0z" fill="#1e6574"/><circle cx="150" cy="90" r="42" fill="#07161c" stroke="#b7dce0" stroke-width="5"/><path d="M116 92c20-30 49-30 68 0-20 29-49 29-68 0Z" fill="none" stroke="#b7dce0" stroke-width="5"/><path d="M150 48v84M108 90h84" stroke="#b7dce0" stroke-width="3" opacity=".8"/><circle cx="150" cy="90" r="7" fill="#78b69b"/></svg>`,
+  rekar:`<svg viewBox="0 0 300 180" xmlns="http://www.w3.org/2000/svg"><rect width="300" height="180" fill="#17212a"/><path d="M0 0L300 180H220L0 48Z" fill="#6e7f8a"/><path d="M300 0L0 180H80L300 48Z" fill="#314a57"/><circle cx="150" cy="90" r="31" fill="#0a1116" stroke="#c5d0d4" stroke-width="5"/><path d="M150 69v42M129 90h42" stroke="#c5d0d4" stroke-width="5"/><rect x="10" y="10" width="280" height="160" fill="none" stroke="#8fa5ad" stroke-width="3" opacity=".35"/></svg>`,
+  braxen:`<svg viewBox="0 0 300 180" xmlns="http://www.w3.org/2000/svg"><rect width="300" height="180" fill="#6b2737"/><rect y="0" width="300" height="45" fill="#18262d"/><rect y="135" width="300" height="45" fill="#18262d"/><path d="M150 45l38 34-15 49h-46l-15-49z" fill="#b89b66" stroke="#e2d2a5" stroke-width="3"/><path d="M150 61v62M130 82h40M136 105h28" stroke="#18262d" stroke-width="5"/><circle cx="150" cy="90" r="5" fill="#e6d7ae"/></svg>`,
+  markedin:`<svg viewBox="0 0 300 180" xmlns="http://www.w3.org/2000/svg"><rect width="300" height="180" fill="#263f36"/><path d="M0 0h300v60H0z" fill="#8b6f3d"/><path d="M0 120h300v60H0z" fill="#4c6b59"/><circle cx="150" cy="90" r="35" fill="#d8c99a"/><path d="M132 107V73l18-12 18 12v34z" fill="#263f36"/><path d="M138 86h24M138 96h24" stroke="#d8c99a" stroke-width="4"/></svg>`,
+  silverat:`<svg viewBox="0 0 300 180" xmlns="http://www.w3.org/2000/svg"><rect width="300" height="180" fill="#506d62"/><rect y="118" width="300" height="62" fill="#263c35"/><circle cx="150" cy="78" r="31" fill="#d6e0c8"/><path d="M150 49c-25 15-31 39-27 59 17-9 27-22 27-42 0 20 10 33 27 42 4-20-2-44-27-59Z" fill="#4f7763"/><path d="M150 88v54M150 113c-18-8-27-20-30-32M150 122c18-8 27-20 30-32" stroke="#d6e0c8" stroke-width="4" fill="none"/></svg>`,
+  noserium:`<svg viewBox="0 0 300 180" xmlns="http://www.w3.org/2000/svg"><rect width="300" height="180" fill="#315b4b"/><path d="M0 132Q70 88 145 126T300 112V180H0Z" fill="#1d3530"/><path d="M0 0h300v42H0z" fill="#a49b68"/><path d="M55 132l18-47 18 47M126 132l22-57 22 57M215 132l18-47 18 47" stroke="#c9c79a" stroke-width="7" fill="none"/><path d="M92 20v35M150 12v42M208 20v35" stroke="#315b4b" stroke-width="5"/></svg>`,
+  corsedia:`<svg viewBox="0 0 300 180" xmlns="http://www.w3.org/2000/svg"><rect width="300" height="180" fill="#284b68"/><path d="M0 0L300 180M300 0L0 180" stroke="#c8d5d8" stroke-width="18"/><path d="M0 0L300 180M300 0L0 180" stroke="#b68b52" stroke-width="8"/><circle cx="150" cy="90" r="29" fill="#102535" stroke="#d8e0df" stroke-width="4"/><path d="M150 67v46M127 90h46" stroke="#b68b52" stroke-width="5"/></svg>`
+ }; return F[k]||'';
+}
+function showNations(){hidePages();document.getElementById('nationPage').classList.add('active');document.getElementById('crumb').textContent='ARCHIVE / NATIONS';setNav('nations');document.getElementById('nationGrid').innerHTML=Object.entries(nationData).map(([k,n])=>`<div class="nationCard" onclick="showCountry('${k}')"><div class="miniFlag">${flagSVG(k)}</div><div class="codeLine"><div class="code">${n.code} / NATION FILE</div><div class="fileMark">ARCHIVE</div></div><h3>${n.name}</h3><div class="en">${n.en}</div><p>${n.summary}</p><div class="countryTags">${n.tags.slice(0,3).map(t=>`<span>${t}</span>`).join('')}</div></div>`).join('');scrollTop()}
+function countrySectionHTML(n){return n.sections.map((sec,i)=>`<details class="articleSection" id="sec-${i+1}" open><summary>${sec[0]}</summary><div class="articleBody">${sec[1].map((x,j)=>Array.isArray(x)?`<ul>${x.map(y=>`<li>${y}</li>`).join('')}</ul>`:`<p>${x}</p>`).join('')}</div></details>`).join('')}
+function showCountry(k){const n=nationData[k];if(!n)return;hidePages();document.getElementById('countryDetailPage').classList.add('active');document.getElementById('crumb').textContent='ARCHIVE / NATIONS / '+n.name;setNav('nations');const toc=n.sections.map((sec,i)=>`<li><a href="#sec-${i+1}">${sec[0]}</a></li>`).join('');const facts=n.facts.map(f=>`<div class="iboxRow"><b>${f[0]}</b><span>${f[1]}</span></div>`).join('');const tags=n.tags.map(t=>`<span>${t}</span>`).join('');document.getElementById('countryInfo').innerHTML=`<div class="countryLayout"><article class="countryArticle"><div class="countryHero"><div class="eyebrow">NATION FILE / ${n.code} / GEOPOLITICAL ARCHIVE</div><div class="flagHero">${flagSVG(k)}</div><h2>${n.name}</h2><div class="roman">${n.en}</div><div class="lede">${n.summary}</div><div class="countryTags">${tags}</div></div><div class="wikiNav"><div class="navTitle">DOCUMENT NAVIGATION</div><div class="navLinks"><a href="#toc">목차</a>${n.sections.slice(0,6).map((s,i)=>`<a href="#sec-${i+1}">${s[0].replace(/^\d+\. /,'')}</a>`).join('')}</div></div><div class="toc" id="toc"><div class="tocTitle">목차</div><ol>${toc}</ol></div>${countrySectionHTML(n)}<div class="sourceNote">이 문서는 기존 세계관 설정을 우선하고, 사용자가 허용한 비공식 확장 설정을 덧붙인 세계관 백과사전형 기록이다. 세부 지명·수치·고유명은 향후 설정 확정에 따라 변경될 수 있다.</div></article><aside class="infobox"><div class="infoboxTitle">${n.name}<br><small style="font-size:8px;color:#718b94;font-weight:normal">${n.en}</small></div><div class="flagVisual">${flagSVG(k)}</div><div class="infoboxVisual" style="margin-top:8px"><strong>${n.code}</strong><small>NATIONAL FLAG / VISUAL FILE</small></div><div class="infoboxRows"><div class="iboxRow"><b>국가 형태</b><span>${n.government}</span></div><div class="iboxRow"><b>수도</b><span>${n.capital}</span></div><div class="iboxRow"><b>언어</b><span>${n.language}</span></div><div class="iboxRow"><b>통화</b><span>${n.currency}</span></div><div class="iboxRow"><b>국가적 표상</b><span>${n.symbol}</span></div><div class="iboxRow"><b>표어</b><span>${n.motto}</span></div>${facts}</div><div class="infoboxFoot">본 인포박스의 수도·통화 등 일부 항목은 비공식 확장 설정이다.</div></aside></div>`;scrollTop()}
+function scrollTop(){const c=document.querySelector('.content');if(c)c.scrollTop=0}
+function closeArchiveToDesktop(){
+  restrictedUnlocked=false;
+  document.getElementById('archive').classList.remove('active');
+  document.getElementById('boot').style.display='block';
+  hidePages();
+  document.getElementById('homePage').classList.add('active');
+  setNav('home');
+  document.getElementById('crumb').textContent='ARCHIVE / OVERVIEW';
+  const search=document.getElementById('search'); if(search){search.value='';search.style.borderColor='';}
+  ['loginModal','restrictedLoginModal'].forEach(id=>closeLogin(id));
+  document.querySelectorAll('.restrictedPanel').forEach((x,i)=>x.classList.toggle('active',i===0));
+  document.querySelectorAll('.restrictedTabs button').forEach((x,i)=>x.classList.toggle('active',i===0));
+  const c=document.querySelector('.content'); if(c)c.scrollTop=0;
+  document.querySelectorAll('.desktop-file').forEach(x=>x.classList.remove('selected'));
+}
+function openLogin(){document.getElementById('loginModal').style.display='flex';setTimeout(()=>document.getElementById('pw').focus(),50)}
+function closeLogin(id){const m=document.getElementById(id);if(m){m.style.display='none';const inp=m.querySelector('input');if(inp)inp.value='';const err=m.querySelector('.error');if(err)err.textContent=''}}
+function unlock(){const p=document.getElementById('pw').value;if(p==='COLX'){document.getElementById('loginModal').style.display='none';document.getElementById('boot').style.display='none';document.getElementById('archive').classList.add('active');home()}else document.getElementById('err').textContent='ACCESS DENIED — INVALID PASSWORD'}
+function requestRestricted(){if(restrictedUnlocked){showRestricted();return}const m=document.getElementById('restrictedLoginModal');if(!m)return;m.style.display='flex';document.getElementById('serr').textContent='';setTimeout(()=>document.getElementById('spw').focus(),50)}
+document.addEventListener('keydown',e=>{if(e.key==='Enter'&&document.getElementById('restrictedLoginModal').style.display==='flex')unlockRestricted();});
+function unlockRestricted(){const p=document.getElementById('spw').value.trim();if(p==='4170'){restrictedUnlocked=true;document.getElementById('restrictedLoginModal').style.display='none';document.getElementById('boot').style.display='none';document.getElementById('archive').classList.add('active');showRestricted()}else document.getElementById('serr').textContent='ACCESS DENIED — RESTRICTED CODE REQUIRED'}
+function showRestricted(){hidePages();document.getElementById('restrictedPage').classList.add('active');document.getElementById('crumb').textContent='ARCHIVE / RESTRICTED / SILENT ZONE';setNav('restricted');scrollTop()}
+function restrictedTab(k,btn){document.querySelectorAll('.restrictedPanel').forEach(x=>x.classList.remove('active'));document.getElementById('r-'+k).classList.add('active');document.querySelectorAll('.restrictedTabs button').forEach(x=>x.classList.remove('active'));btn.classList.add('active')}
+function searchKey(e){if(e.key!=='Enter')return;const q=e.target.value.trim().toLowerCase();if(!q)return;if(['정적','정적구역','silent zone','silent','restricted'].some(x=>q.includes(x))){requestRestricted();return}const nk=Object.keys(nationData).find(k=>{const n=nationData[k];return(n.name+' '+n.en+' '+n.summary+' '+n.theme+' '+n.sections.flat(2).join(' ')).toLowerCase().includes(q)});if(nk){showCountry(nk);return}const key=Object.keys(archiveData).find(k=>{const d=archiveData[k];return(d.title+' '+d.meta+' '+d.text+' '+d.rows.flat().join(' ')).toLowerCase().includes(q)});if(key){showDetail(key);return} e.target.style.borderColor='#7a5656';setTimeout(()=>e.target.style.borderColor='',700)}
+document.getElementById('pw').addEventListener('keydown',e=>{if(e.key==='Enter')unlock()});document.getElementById('spw').addEventListener('keydown',e=>{if(e.key==='Enter')unlockRestricted()});
+</script>
+<script id="os-redesign-js">
+(()=>{
+  const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
+
+  // Real-time system clock.
+  const tick=()=>{
+    const now=new Date(), t=now.toLocaleTimeString('ko-KR',{hour12:false,hour:'2-digit',minute:'2-digit'});
+    $$('#bootClock,#archiveClock').forEach(x=>x.textContent=t);
+  };
+  tick(); setInterval(tick,1000);
+
+  // Window controls remain clickable; archive itself is intentionally fixed in place.
+  // Window controls.
+  $('.win-dot.close')?.addEventListener('click',()=>closeArchiveToDesktop());
+  $('.win-dot.min')?.addEventListener('click',()=>{
+    if(innerWidth<=760)return;
+    if(app){app.style.display='none';}
+    if(title){title.style.display='none';}
+    $('.archive-taskbar .task-app')?.classList.remove('active');
+  });
+  $('.archive-taskbar .task-app')?.addEventListener('click',()=>{
+    if(!app||!title)return;
+    app.style.display='flex';title.style.display='flex';
+    $('.archive-taskbar .task-app').classList.add('active');
+  });
+
+  // Add escape-to-close to login dialogs.
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape'){
+      ['loginModal','restrictedLoginModal'].forEach(id=>closeLogin(id));
+    }
+  });
+
+  // Password dialogs stay centered and fixed; no dragging.
+})();
+</script>
+<script id="desktop-polish-js">
+(()=>{
+ const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
+ const desktop=$('.desktop');
+ if(!desktop)return;
+ // 1. OS top bar
+ const top=document.createElement('div');top.className='boot-topbar';top.innerHTML='<span class="brand">COL-X OS</span><span class="menu"><span>FILE</span><span>EDIT</span><span>VIEW</span><span>WINDOW</span><span>HELP</span></span><span class="right"><span>▣ SECURE</span><span class="sysdot" id="netLabel">● ONLINE</span></span>';desktop.prepend(top);
+ // 2. ambient system widgets
+ const widgets=document.createElement('div');widgets.className='desktop-widgets';widgets.innerHTML='<div class="widget"><b>NETWORK</b><span id="netWidget">SECURE LINK</span></div><div class="widget"><b>STORAGE</b><span>68% AVAILABLE</span></div><div class="widget"><b>STATUS</b><span>ARCHIVE READY</span></div><div class="widget"><b>SESSION</b><span id="sessionWidget">LOCAL / SAFE</span></div>';desktop.append(widgets);
+ // 3. desktop search
+ const search=document.createElement('input');search.className='desktop-search';search.placeholder='Search this desktop…';desktop.append(search);
+ search.addEventListener('keydown',e=>{if(e.key==='Enter'){const q=e.target.value.trim().toLowerCase();$$('.desktop-file').forEach(f=>f.classList.toggle('selected',!!q&&f.textContent.toLowerCase().includes(q)));if(q)log('Desktop search: '+q)}});
+ // 4. utility buttons
+ const util=document.createElement('div');util.className='desktop-utility';util.innerHTML='<button class="utility-btn" data-panel="quickPanel">☷</button><button class="utility-btn" data-panel="calendarPanel">▦</button><button class="utility-btn" data-panel="noticePanel">●</button><button class="utility-btn" id="fullscreenBtn">⛶</button>';desktop.append(util);
+ // 5-8. panels
+ const quick=document.createElement('div');quick.id='quickPanel';quick.className='os-panel';quick.innerHTML='<h3>QUICK SETTINGS</h3><div class="panel-row"><span>NETWORK</span><button class="panel-action on" id="networkBtn">CONNECTED</button></div><div class="panel-row"><span>VOLUME</span><button class="panel-action on" id="volumeBtn">SOUND ON</button></div><div class="panel-row"><span>FOCUS MODE</span><button class="panel-action" id="focusBtn">OFF</button></div><div class="panel-row"><span>BRIGHTNESS</span><input class="range" id="brightness" type="range" min="70" max="115" value="100"></div><div class="panel-row"><span>THEME</span><button class="panel-action" id="themeBtn">NIGHT</button></div><div class="panel-row"><span>CLOCK</span><button class="panel-action" id="clockBtn">24H</button></div>';desktop.append(quick);
+ const cal=document.createElement('div');cal.id='calendarPanel';cal.className='os-panel';desktop.append(cal);
+ const notice=document.createElement('div');notice.id='noticePanel';notice.className='os-panel';notice.innerHTML='<h3>NOTIFICATION CENTER</h3><div class="notice">SECURE SESSION ACTIVE<br>COL-X archive is ready.</div><div class="notice">No pending system alerts.</div><div class="notice" id="recentNotice">Recent activity will appear here.</div>';desktop.append(notice);
+ // 9. calendar
+ function buildCalendar(){const n=new Date(),y=n.getFullYear(),m=n.getMonth(),today=n.getDate(),first=new Date(y,m,1).getDay(),days=new Date(y,m+1,0).getDate();let h='<h3>'+n.toLocaleDateString('en-US',{month:'long',year:'numeric'})+'</h3><div class="calendar-grid">';['S','M','T','W','T','F','S'].forEach(x=>h+='<span class="head">'+x+'</span>');for(let i=0;i<first;i++)h+='<span></span>';for(let d=1;d<=days;d++)h+='<span class="'+(d===today?'today':'')+'">'+d+'</span>';h+='</div>';cal.innerHTML=h}
+ buildCalendar();
+ // 10. Start menu
+ const start=$('.boot-taskbar .task-start');const menu=document.createElement('div');menu.className='start-menu';menu.innerHTML='<div class="start-head">COL-X OS / APPLICATIONS</div><div class="start-items"><div class="start-item" data-action="archive">▣ Archive</div><div class="start-item" data-action="search">⌕ Search</div><div class="start-item" data-action="info">◫ System Info</div><div class="start-item" data-action="shortcuts">⌨ Shortcuts</div><div class="start-item" data-action="recent">↻ Recent Activity</div><div class="start-item" data-action="lock">◉ Lock Screen</div></div>';desktop.append(menu);start?.addEventListener('click',e=>{e.stopPropagation();menu.classList.toggle('open')});
+ // 11. date
+ const tray=$('.boot-taskbar .system-tray');if(tray&&!tray.querySelector('.tray-date')){const d=document.createElement('span');d.className='tray-date';tray.insertBefore(d,tray.querySelector('.task-clock'));const dt=()=>{const n=new Date();d.textContent=n.toLocaleDateString('ko-KR',{month:'2-digit',day:'2-digit'}).replace(/\. /g,'.').replace(/\.$/,'')};dt();setInterval(dt,60000)}
+ // 12. activity log
+ const activity=[];function log(x){activity.unshift(new Date().toLocaleTimeString('ko-KR',{hour12:false,hour:'2-digit',minute:'2-digit'})+'  '+x);activity.splice(8);const n=$('#recentNotice');if(n)n.innerHTML=activity.length?activity.join('<br>'):'No recent activity.'}
+ // 13. fixed icon selection only — no dragging / long press
+ $$('.desktop-file').forEach(file=>{file.addEventListener('click',()=>{$$('.desktop-file').forEach(x=>x.classList.remove('selected'));file.classList.add('selected');log('Selected '+file.textContent.replace(/\s+/g,' ').trim())});file.addEventListener('dblclick',e=>e.preventDefault());file.style.touchAction='manipulation'});
+ // 14. quick settings actions
+ $('#networkBtn').onclick=()=>{const b=$('#networkBtn'),on=b.classList.toggle('on');b.textContent=on?'CONNECTED':'OFFLINE';$('#netLabel').textContent=on?'● ONLINE':'● OFFLINE';$('#netLabel').style.color=on?'#75a991':'#9b7777';$('#netWidget').textContent=on?'SECURE LINK':'DISCONNECTED';log('Network '+(on?'connected':'disabled'))};
+ $('#volumeBtn').onclick=()=>{const b=$('#volumeBtn'),on=b.classList.toggle('on');b.textContent=on?'SOUND ON':'MUTED';log('Sound '+(on?'enabled':'muted'))};
+ $('#focusBtn').onclick=()=>{const b=$('#focusBtn'),on=b.classList.toggle('on');b.textContent=on?'ON':'OFF';desktop.classList.toggle('focus-mode',on);log('Focus mode '+(on?'enabled':'disabled'))};
+ $('#brightness').oninput=e=>{document.body.style.filter='brightness('+e.target.value/100+')';log('Brightness '+e.target.value+'%')};
+ $('#themeBtn').onclick=()=>{const b=$('#themeBtn');const warm=document.body.classList.toggle('warm-mode');b.textContent=warm?'SOFT':'NIGHT';log('Display theme changed')};
+ let twelve=false;$('#clockBtn').onclick=()=>{twelve=!twelve;$('#clockBtn').textContent=twelve?'12H':'24H';window.colx12h=twelve;log('Clock format '+(twelve?'12-hour':'24-hour'))};
+ // 15. full screen
+ $('#fullscreenBtn').onclick=async()=>{try{if(!document.fullscreenElement)await document.documentElement.requestFullscreen();else await document.exitFullscreen();log('Fullscreen toggled')}catch(e){log('Fullscreen unavailable')}};
+ // 16. helper modal
+ function modal(title,html){let m=$('#utilityModal');if(!m){m=document.createElement('div');m.id='utilityModal';m.className='modal-lite';desktop.append(m)}m.innerHTML='<button class="modal-close">×</button><h3>'+title+'</h3>'+html;m.classList.add('open');m.querySelector('.modal-close').onclick=()=>m.classList.remove('open');return m}
+ // 17. system info
+ function systemInfo(){modal('SYSTEM INFORMATION','<div class="info-grid"><div class="info-cell"><b>OS</b><span>COL-X Secure Desktop</span></div><div class="info-cell"><b>SESSION</b><span>LOCAL / SAFE</span></div><div class="info-cell"><b>DISPLAY</b><span>'+innerWidth+' × '+innerHeight+'</span></div><div class="info-cell"><b>ENGINE</b><span>Browser Runtime</span></div><div class="info-cell"><b>ARCHIVE</b><span>READY</span></div><div class="info-cell"><b>TIME</b><span>'+new Date().toLocaleString()+'</span></div></div>');log('Opened system information')}
+ // 18. keyboard shortcuts
+ function shortcuts(){modal('KEYBOARD SHORTCUTS','<div class="notice"><b>Ctrl / Cmd + F</b> — desktop search</div><div class="notice"><b>Esc</b> — close menus / dialogs</div><div class="notice"><b>Enter</b> — submit password / search</div><div class="notice"><b>F11</b> — browser fullscreen</div>');log('Opened shortcuts')}
+ // 19. recent activity
+ function recent(){modal('RECENT ACTIVITY',activity.length?activity.map(x=>'<div class="notice">'+x+'</div>').join(''):'<div class="notice">No recent activity yet.</div>');log('Opened recent activity')}
+ // 20. file properties
+ function properties(){const f=$('.desktop-file.selected')||$('.desktop-file');modal('FILE PROPERTIES','<div class="info-grid"><div class="info-cell"><b>NAME</b><span>'+f.textContent.replace(/\s+/g,' ').trim()+'</span></div><div class="info-cell"><b>TYPE</b><span>Secure archive shortcut</span></div><div class="info-cell"><b>LOCATION</b><span>Desktop / COL-X OS</span></div><div class="info-cell"><b>ACCESS</b><span>Protected</span></div></div>');log('Opened file properties')}
+ // 21. wallpaper cycle
+ let wall=0;function wallpaper(){wall=(wall+1)%3;const bg=['radial-gradient(circle at 50% 45%,rgba(44,72,83,.18),transparent 34%),linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px),radial-gradient(circle at 70% 20%,#122b34 0,#071319 45%,#03070a 100%)','radial-gradient(circle at 25% 20%,rgba(74,70,48,.18),transparent 30%),linear-gradient(135deg,#11171a,#05080b 65%)','radial-gradient(circle at 75% 55%,rgba(47,68,92,.24),transparent 35%),linear-gradient(160deg,#09131b,#030609)'];desktop.style.backgroundImage=bg[wall];log('Wallpaper changed')}
+ // 22. refresh desktop
+ function refresh(){ $$('.desktop-file').forEach(x=>x.classList.remove('selected'));search.value='';log('Desktop refreshed') }
+ // 23. lock screen
+ const lock=document.createElement('div');lock.className='lock-screen';lock.innerHTML='<div><div class="lock-time" id="lockTime">--:--</div><div class="lock-date" id="lockDate">--</div><div class="lock-hint">TAP TO RETURN TO DESKTOP</div></div>';desktop.append(lock);lock.onclick=()=>{lock.classList.remove('open');log('Session unlocked')};function lockScreen(){lock.classList.add('open');log('Session locked')}
+ // 24. session reset / close all utility overlays
+ function resetSession(){ $$('.os-panel').forEach(x=>x.classList.remove('open'));menu.classList.remove('open');$('#utilityModal')?.classList.remove('open');search.value='';$$('.desktop-file').forEach(x=>x.classList.remove('selected'));log('Session workspace reset') }
+ // utility button wiring
+ util.querySelectorAll('[data-panel]').forEach(b=>b.onclick=e=>{$$('.os-panel').forEach(p=>p.classList.remove('open'));$(b.dataset.panel)?.classList.toggle('open');});
+ // Start menu actions
+ menu.querySelectorAll('[data-action]').forEach(x=>x.onclick=()=>{menu.classList.remove('open');const a=x.dataset.action;if(a==='archive')openLogin();if(a==='search')search.focus();if(a==='info')systemInfo();if(a==='shortcuts')shortcuts();if(a==='recent')recent();if(a==='lock')lockScreen()});
+ // 25. context menu with distinct actions
+ const cm=document.createElement('div');cm.className='context-menu';cm.innerHTML='<div data-cm="refresh">↻ Refresh</div><div data-cm="props">ⓘ Properties</div><div data-cm="wall">▧ Change Wallpaper</div><div data-cm="system">◫ System Info</div><div data-cm="reset">↺ Reset Workspace</div>';document.body.append(cm);desktop.addEventListener('contextmenu',e=>{if(e.target.closest('.file'))return;e.preventDefault();cm.style.left=Math.min(e.clientX,innerWidth-180)+'px';cm.style.top=Math.min(e.clientY,innerHeight-170)+'px';cm.style.display='block'});cm.querySelector('[data-cm="refresh"]').onclick=refresh;cm.querySelector('[data-cm="props"]').onclick=properties;cm.querySelector('[data-cm="wall"]').onclick=wallpaper;cm.querySelector('[data-cm="system"]').onclick=systemInfo;cm.querySelector('[data-cm="reset"]').onclick=resetSession;document.addEventListener('click',e=>{if(!e.target.closest('.context-menu'))cm.style.display='none'});
+ // 26. keyboard shortcuts / live lock clock
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'){$('.context-menu')?.style.setProperty('display','none');menu.classList.remove('open');$$('.os-panel').forEach(p=>p.classList.remove('open'));$('#utilityModal')?.classList.remove('open')}if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='f'){e.preventDefault();search.focus()}if(e.key==='F11'){e.preventDefault();$('#fullscreenBtn').click()}});
+ setInterval(()=>{const n=new Date();$('#lockTime').textContent=n.toLocaleTimeString('ko-KR',{hour12:false,hour:'2-digit',minute:'2-digit'});$('#lockDate').textContent=n.toLocaleDateString('ko-KR',{weekday:'long',year:'numeric',month:'long',day:'numeric'})},1000);
+ // Keep clock readable and support 12/24 hour choice.
+ setInterval(()=>{$$('#bootClock,#archiveClock').forEach(x=>{const n=new Date();x.textContent=n.toLocaleTimeString('ko-KR',{hour12:!!window.colx12h,hour:'2-digit',minute:'2-digit'})})},1000);
+ // Initial log
+ log('Desktop session initialized');
+})();
+</script>
+<script id="mobile-desktop-compat-script-v10">
+(function(){
+  function applyPhoneDesktopCompatibility(){
+    var touch = (navigator.maxTouchPoints || 0) > 1 || matchMedia('(pointer:coarse)').matches;
+    var wideLayout = window.innerWidth > 760;
+    var phoneLikeScreen = Math.min(screen.width || 9999, screen.height || 9999) < 760 || window.devicePixelRatio >= 1.75;
+    var root = document.documentElement;
+    if(touch && wideLayout && phoneLikeScreen){
+      var logicalWidth = 390;
+      var scale = window.innerWidth / logicalWidth;
+      root.classList.add('force-phone-layout');
+      root.style.setProperty('--phone-scale', String(scale));
+    } else {
+      root.classList.remove('force-phone-layout');
+      root.style.removeProperty('--phone-scale');
+    }
+  }
+  applyPhoneDesktopCompatibility();
+  window.addEventListener('resize', function(){ requestAnimationFrame(applyPhoneDesktopCompatibility); });
+  window.addEventListener('orientationchange', function(){ setTimeout(applyPhoneDesktopCompatibility,120); });
+})();
+</script>
+
+</body></html><style id="v11-clean-responsive">
+/* V11 CLEAN RESPONSIVE DESKTOP
+   Goal: never let dashboard modules collide; keep radar mathematically centered;
+   keep files below COL-X OS; make phone + phone Desktop-site composition identical.
+*/
+@media (max-width:760px){
+  #boot .desktop{height:calc(100% - 34px)!important;min-height:0!important;overflow:hidden!important}
+  #boot .boot-topbar{height:30px!important}
+  #boot .desktop-file{top:44px!important;z-index:80!important;width:88px!important}
+  #boot .desktop-file:not(.restricted){left:20px!important}
+  #boot .desktop-file.restricted{left:132px!important}
+  #boot .desktop-file .fileicon{width:52px!important;height:62px!important}
+  #boot .desktop-file small{font-size:9px!important;line-height:1.3!important}
+  #boot .desktop-ambient{z-index:1!important}
+  #boot .desktop-ambient .orbit{width:310px!important;height:310px!important;left:50%!important;right:auto!important;top:29%!important;transform:translateX(-50%)!important}
+  #boot .desktop-ambient .radar{width:270px!important;height:270px!important;left:50%!important;right:auto!important;top:calc(29% + 20px)!important;transform:translateX(-50%)!important}
+  #boot .desktop-ambient .crosshair{left:50%!important;right:auto!important;top:calc(29% + 155px)!important;transform:translate(-50%,-50%)!important}
+  #boot .desktop-ambient .section-label{left:25px!important;top:21%!important;font-size:7px!important}
+  #boot .desktop-ambient .section-label:after{width:55px!important}
+  #boot .desktop-ambient .warning-chip{right:16px!important;top:43%!important;font-size:6.5px!important;padding:7px 9px!important}
+  #boot .desktop-ambient .telemetry{left:14px!important;top:40%!important;width:205px!important;padding:11px 12px!important}
+  #boot .desktop-ambient .module{box-sizing:border-box!important;overflow:hidden!important}
+  #boot .desktop-ambient .module .mt{font-size:7px!important;letter-spacing:1.2px!important;white-space:nowrap!important}
+  #boot .desktop-ambient .module .ms,
+  #boot .desktop-ambient .module .rowx{font-size:6px!important;line-height:1.5!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:clip!important}
+  #boot .desktop-ambient .m1{left:14px!important;top:53%!important;width:165px!important;padding:9px!important}
+  #boot .desktop-ambient .m2{right:14px!important;top:53%!important;width:165px!important;padding:9px!important}
+  #boot .desktop-ambient .m3{left:14px!important;bottom:70px!important;width:165px!important;padding:8px!important}
+  #boot .desktop-ambient .m4{right:14px!important;bottom:70px!important;width:165px!important;padding:8px!important}
+  #boot .desktop-ambient .m3 .wave{height:21px!important;margin-top:5px!important}
+  #boot .desktop-ambient .m4 .miniMap{height:24px!important;margin-top:5px!important}
+  #boot .desktop-ambient .datastream,
+  #boot .desktop-ambient .corner{display:none!important}
+  #boot .desktop-status-strip{left:14px!important;right:14px!important;bottom:57px!important}
+  #boot .desktop-search{display:none!important}
+  #boot .desktop-utility{right:10px!important;bottom:55px!important;gap:4px!important}
+  #boot .utility-btn{min-width:29px!important;height:29px!important;padding:0 6px!important}
+  #boot .hint{display:none!important}
+  #boot .taskbar{height:48px!important;z-index:100!important}
+}
+
+/* Mobile Chrome "Desktop site": do NOT scale a tiny 390px canvas.
+   Keep the real viewport and use a proportionally larger version of the same clean layout. */
+html.force-phone-layout,
+html.force-phone-layout body,
+html.force-phone-layout .screen{width:100%!important;max-width:none!important;min-width:0!important;height:100dvh!important;min-height:100dvh!important;transform:none!important;position:relative!important;left:auto!important;top:auto!important;overflow:hidden!important}
+html.force-phone-layout #boot{height:100dvh!important;min-height:100dvh!important;overflow:hidden!important}
+html.force-phone-layout #boot .bar{height:34px!important;padding:0 10px!important;font-size:9px!important}
+html.force-phone-layout #boot .desktop{height:calc(100% - 34px)!important;min-height:0!important;overflow:hidden!important}
+html.force-phone-layout #boot .boot-topbar{height:42px!important;padding:0 18px!important;font-size:11px!important;z-index:90!important}
+html.force-phone-layout #boot .boot-topbar .brand{font-size:13px!important}
+html.force-phone-layout #boot .desktop-file{top:50px!important;width:130px!important;z-index:100!important}
+html.force-phone-layout #boot .desktop-file:not(.restricted){left:60px!important}
+html.force-phone-layout #boot .desktop-file.restricted{left:255px!important}
+html.force-phone-layout #boot .desktop-file .fileicon{width:72px!important;height:88px!important;margin:auto!important}
+html.force-phone-layout #boot .desktop-file small{font-size:10px!important;line-height:1.35!important}
+html.force-phone-layout #boot .desktop-ambient{z-index:1!important}
+html.force-phone-layout #boot .desktop-ambient .orbit{width:430px!important;height:430px!important;left:50%!important;right:auto!important;top:27%!important;transform:translateX(-50%)!important}
+html.force-phone-layout #boot .desktop-ambient .radar{width:370px!important;height:370px!important;left:50%!important;right:auto!important;top:calc(27% + 30px)!important;transform:translateX(-50%)!important}
+html.force-phone-layout #boot .desktop-ambient .crosshair{left:50%!important;right:auto!important;top:calc(27% + 215px)!important;transform:translate(-50%,-50%)!important}
+html.force-phone-layout #boot .desktop-ambient .section-label{left:34px!important;top:20%!important;font-size:8px!important}
+html.force-phone-layout #boot .desktop-ambient .section-label:after{width:85px!important}
+html.force-phone-layout #boot .desktop-ambient .warning-chip{right:34px!important;top:42%!important;font-size:8px!important;padding:9px 12px!important}
+html.force-phone-layout #boot .desktop-ambient .telemetry{left:34px!important;top:39%!important;width:285px!important;padding:14px 16px!important}
+html.force-phone-layout #boot .desktop-ambient .module{box-sizing:border-box!important;overflow:hidden!important}
+html.force-phone-layout #boot .desktop-ambient .module .mt{font-size:9px!important;letter-spacing:1.5px!important;white-space:nowrap!important}
+html.force-phone-layout #boot .desktop-ambient .module .ms,
+html.force-phone-layout #boot .desktop-ambient .module .rowx{font-size:7px!important;line-height:1.6!important;white-space:nowrap!important;overflow:hidden!important}
+html.force-phone-layout #boot .desktop-ambient .m1{left:34px!important;top:53%!important;width:285px!important;padding:12px!important}
+html.force-phone-layout #boot .desktop-ambient .m2{right:34px!important;top:53%!important;width:285px!important;padding:12px!important}
+html.force-phone-layout #boot .desktop-ambient .m3{left:34px!important;bottom:78px!important;width:285px!important;padding:11px!important}
+html.force-phone-layout #boot .desktop-ambient .m4{right:34px!important;bottom:78px!important;width:285px!important;padding:11px!important}
+html.force-phone-layout #boot .desktop-ambient .m3 .wave{height:28px!important}
+html.force-phone-layout #boot .desktop-ambient .m4 .miniMap{height:32px!important}
+html.force-phone-layout #boot .desktop-ambient .datastream,
+html.force-phone-layout #boot .desktop-ambient .corner{display:none!important}
+html.force-phone-layout #boot .desktop-status-strip{left:34px!important;right:34px!important;bottom:62px!important}
+html.force-phone-layout #boot .desktop-search{display:none!important}
+html.force-phone-layout #boot .desktop-utility{right:24px!important;bottom:58px!important;gap:6px!important}
+html.force-phone-layout #boot .utility-btn{min-width:38px!important;height:38px!important}
+html.force-phone-layout #boot .hint{display:none!important}
+html.force-phone-layout #boot .taskbar{height:60px!important;z-index:100!important}
+</style>
+<script id="mobile-desktop-compat-script-v11">
+(function(){
+  function applyPhoneDesktopCompatibility(){
+    var touch=(navigator.maxTouchPoints||0)>1||matchMedia('(pointer:coarse)').matches;
+    var wide=window.innerWidth>760;
+    var phoneLike=Math.min(screen.width||9999,screen.height||9999)<760||window.devicePixelRatio>=1.75;
+    var root=document.documentElement;
+    if(touch&&wide&&phoneLike){
+      root.classList.add('force-phone-layout');
+      root.style.removeProperty('--phone-scale');
+    }else{
+      root.classList.remove('force-phone-layout');
+      root.style.removeProperty('--phone-scale');
+    }
+  }
+  applyPhoneDesktopCompatibility();
+  addEventListener('resize',function(){requestAnimationFrame(applyPhoneDesktopCompatibility)});
+  addEventListener('orientationchange',function(){setTimeout(applyPhoneDesktopCompatibility,120)});
+})();
+</script>
